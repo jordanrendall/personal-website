@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import gql from 'graphql-tag';
 
 const PageStyles = styled.div`
   background: rebeccapurple;
+  display: grid;
+  grid-template-columns: 1fr auto;
 `;
 
 export default PageStyles;
