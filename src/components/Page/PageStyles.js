@@ -3,8 +3,10 @@ import styled from 'styled-components';
 
 const PageStyles = styled.div`
   background: rebeccapurple;
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* grid-template-columns: 1fr auto; */
 `;
 
 export default PageStyles;

@@ -11,7 +11,9 @@ const IndexPage = () => (
     <div>
       <Image />
     </div>
-    <Link to='/other-projects/'>Take a 👀 @ what I have been working on!</Link>
+    <Link to='/other-projects/'>
+      Take a look at what I have been working on!
+    </Link>
   </Layout>
 );
 

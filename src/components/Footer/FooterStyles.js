@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
-  background: rebeccapurple;
+  background: salmon;
   display: flex;
-  flex: 1 1;
   justify-content: center;
+  justify-self: flex-end;
   color: white;
   min-width: 100vw;
 `;

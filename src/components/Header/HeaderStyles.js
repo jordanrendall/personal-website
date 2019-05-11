@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const StyledHeader = styled.header`
   background: rebeccapurple;
   margin-bottom: 1.45rem;
+  border-bottom: 5px solid black;
 `;
 
 const StyledHeaderTitle = styled.div`

@@ -8,10 +8,16 @@ import SEO from '../components/SEO/seo';
 const IndexPage = () => (
   <Layout>
     <SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
-
-    <Link to='/other-projects/'>
-      Take a <span>👀</span> @ what I have been working on!
-    </Link>
+    <div>
+      <Image />
+      <Link to='/other-projects/'>
+        Take a
+        <span role='img' aria-label='googly eyes emoji'>
+          👀
+        </span>
+        @ what I have been working on!
+      </Link>
+    </div>
   </Layout>
 );
 

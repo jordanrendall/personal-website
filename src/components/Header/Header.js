@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
+import Nav from '../Nav/Nav';
 import { StyledHeader, StyledHeaderTitle, StyledH1 } from './HeaderStyles';
 
 const Header = ({ siteTitle }) => (
@@ -19,6 +19,7 @@ const Header = ({ siteTitle }) => (
         </Link>
       </StyledH1>
     </StyledHeaderTitle>
+    <Nav />
   </StyledHeader>
 );
 
