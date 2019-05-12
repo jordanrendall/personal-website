@@ -10,7 +10,7 @@ const IndexPage = () => (
     <SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
     <div>
       <Image />
-      <Link to='/other-projects/'>
+      <Link to='/projects/'>
         Take a
         <span role='img' aria-label='googly eyes emoji'>
           👀
