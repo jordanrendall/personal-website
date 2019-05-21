@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
-  background: salmon;
+  background: black;
   display: flex;
   justify-content: center;
   justify-self: flex-end;

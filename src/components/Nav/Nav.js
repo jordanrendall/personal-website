@@ -7,22 +7,19 @@ const Nav = () => {
     graphql`
       query getPages {
         allSitePage {
-          edges {
-            node {
-              id
-            }
+          nodes {
+            path
           }
         }
       }
     `
   );
+  console.log(data);
   return (
     <NavStyles>
-      {data.allSitePage.edges.map(i => (
-        <Link to='/' key={i.node.id}>
-          {i.node.id}
-        </Link>
-      ))}
+      {data.allSitePage.nodes.map(i => {
+        return !i.path.includes('404') && <Link to={i.path}>{i.path}</Link>;
+      })}
     </NavStyles>
   );
 };

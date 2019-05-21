@@ -14,8 +14,10 @@ import Footer from '../Footer/Footer';
 import PageStyles from '../Page/PageStyles';
 import './Layout.css';
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.main`
   display: grid;
+  justify-content: space-around;
+
   /* grid-template-rows: auto 1fr auto; */
 `;
 
@@ -34,9 +36,7 @@ const Layout = ({ children }) => {
   return (
     <PageStyles>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <ContentWrapper>
-        <main>{children}</main>
-      </ContentWrapper>
+      <ContentWrapper>{children}</ContentWrapper>
       <Footer />
     </PageStyles>
   );
