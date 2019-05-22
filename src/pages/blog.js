@@ -11,10 +11,11 @@ const blogPostsPage = ({ data }) => (
 
     {data.allMarkdownRemark.edges.map(({ node }) => (
       <div key={node.id}>
-        <h3>{node.frontmatter.title} </h3>
-        <span>- {node.frontmatter.date}</span>
-        <span>{node.frontmatter.category}</span>
-        <p>{node.excerpt}</p>
+        <Link to={node.fields.slug}>
+          <h3>{node.frontmatter.title} </h3>
+          <span>- {node.frontmatter.date}</span>
+          <p>{node.excerpt}</p>
+        </Link>
       </div>
     ))}
   </Layout>
@@ -32,7 +33,9 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
-            category
+          }
+          fields {
+            slug
           }
           excerpt
         }
