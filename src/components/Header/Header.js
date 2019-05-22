@@ -1,11 +1,17 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 import React from 'react';
 import Nav from '../Nav/Nav';
 import { StyledHeader, StyledHeaderTitle, StyledH1 } from './HeaderStyles';
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>
+    <Helmet>
+      <meta charSet='utf-8' />
+      <title>{siteTitle}</title>
+      <link rel='canonical' href='https://blog.jordanrendall.com' />
+    </Helmet>
     <StyledHeaderTitle>
       <StyledH1>
         <Link
