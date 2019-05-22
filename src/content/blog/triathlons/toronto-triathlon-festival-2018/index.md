@@ -1,7 +1,6 @@
 ---
 title: 'Toronto Triathlon Festival: Sprint Triathlon — July 22nd, 2018'
 date: '2018-09-27'
-category: 'triathlons'
 ---
 
 Inspiration

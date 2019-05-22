@@ -1,7 +1,6 @@
 ---
 title: 'My First Coaching Season: Part 1'
 date: '2018-10-02'
-category: 'rowing'
 ---
 
 #My First Coaching Season: Part 1
