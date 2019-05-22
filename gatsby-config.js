@@ -3,6 +3,20 @@ module.exports = {
     title: `Jordan Rendall's Blog!`,
     description: `This is a Gatsby based and templated blog using static page generation to improve speed and smooth operation`,
     author: `Jordan Rendall`,
+    menuLinks: [
+      {
+        name: 'Home',
+        link: '/',
+      },
+      {
+        name: 'Blog',
+        link: '/blog',
+      },
+      {
+        name: 'Projects',
+        link: '/projects',
+      },
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

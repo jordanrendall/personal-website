@@ -1,6 +1,7 @@
 ---
 title: 'Wasaga Beach Triathlon: Olympic Distance — August 25, 2018'
 date: '2018-09-30'
+category: 'triathlons'
 ---
 
 Wasaga Beach Triathlon: Olympic Distance — August 25, 2018

@@ -8,14 +8,12 @@ import SEO from '../components/SEO/seo';
 const blogPostsPage = ({ data }) => (
   <Layout>
     <SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
-    <div>
-      <Image />
-    </div>
-    <Link to='/projects'>Take a look at what I have been working on!</Link>
+
     {data.allMarkdownRemark.edges.map(({ node }) => (
       <div key={node.id}>
         <h3>{node.frontmatter.title} </h3>
         <span>- {node.frontmatter.date}</span>
+        <span>{node.frontmatter.category}</span>
         <p>{node.excerpt}</p>
       </div>
     ))}
@@ -34,6 +32,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
+            category
           }
           excerpt
         }
