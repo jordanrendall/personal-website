@@ -5,10 +5,14 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 const Nav = () => {
   const data = useStaticQuery(
     graphql`
-      query getPages {
-        allSitePage {
-          nodes {
-            path
+      query getMenuLinks {
+        site {
+          siteMetadata {
+            title
+            menuLinks {
+              name
+              link
+            }
           }
         }
       }
@@ -17,8 +21,8 @@ const Nav = () => {
   console.log(data);
   return (
     <NavStyles>
-      {data.allSitePage.nodes.map(i => {
-        return !i.path.includes('404') && <Link to={i.path}>{i.path}</Link>;
+      {data.site.siteMetadata.menuLinks.map(i => {
+        return <Link to={i.link}>{i.name}</Link>;
       })}
     </NavStyles>
   );
