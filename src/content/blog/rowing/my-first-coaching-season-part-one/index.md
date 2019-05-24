@@ -3,8 +3,6 @@ title: 'My First Coaching Season: Part 1'
 date: '2018-10-02'
 ---
 
-#My First Coaching Season: Part 1
-
 ##Introduction
 
 Who knew that I would love coaching so much? The responsibility and challenge to make the best of the day for so many people who are dependent on my decisions is not like anything I have experienced.
@@ -19,9 +17,10 @@ Coaching novice rowers has been an enlightening experience so far. The first cou
 
 I have set up a few tools to help me get better and find out what needs to change quickly and effectively.
 
-    1. I have created a weekly review Google Form. Here, I ask how they’ve been doing with sleep, fatigue, hydration and nutrition, but also what they think they’ve improved on, what they think they need to work on, questions, and general comments. It has been really helpful in identifying misunderstandings as well as bad habits in the team.
-    2. I have been taking and analyzing video whenever I can, and only reviewing the most recent video — not basing my opinion of their stroke off of a 2 week old video that is not relevant anymore. These rowers have only been in the sport for 3 weeks now! Their learning and skill development has been exponential. Slow motion video has been extremely helpful to me, and the team. To an individual, I can reference the difference in slow motion between phases of the stroke as well as compared to others in the boat.
-    3. I know it is not very innovative, but I formed a Facebook messenger group and a Facebook group to keep information flowing quickly and predictably to the athletes. They have been accustomed to getting important information from these sources and it has been working very well in that way.
+- I have created a weekly review Google Form. Here, I ask how they’ve been doing with sleep, fatigue, hydration and nutrition, but also what they think they’ve improved on, what they think they need to work on, questions, and general comments. It has been really helpful in identifying misunderstandings as well as bad habits in the team.</li>
+- I have been taking and analyzing video whenever I can, and only reviewing the most recent video — not basing my opinion of their stroke off of a 2 week old video that is not relevant anymore. These rowers have only been in the sport for 3 weeks now! Their learning and skill development has been exponential. Slow motion video has been extremely helpful to me, and the team. To an individual, I can reference the difference in slow motion between phases of the stroke as well as compared to others in the boat.</li>
+
+- I know it is not very innovative, but I formed a Facebook messenger group and a Facebook group to keep information flowing quickly and predictably to the athletes. They have been accustomed to getting important information from these sources and it has been working very well in that way.</li>
 
 ##Race-day
 

@@ -4,12 +4,43 @@ import { Link } from 'gatsby';
 import Layout from '../components/Layout/Layout';
 import Image from '../components/Image/image';
 import SEO from '../components/SEO/seo';
+import Img from 'gatsby-image';
+import {graphql} from 'gatsby'
+import styled from 'styled-components'
 
-const IndexPage = () => (
+const StyledDiv = styled.div`
+  padding: 10px;  
+  display: grid;
+  justify-items: center;
+  align-content: center;
+`;
+
+const IndexPage = ({data}) => (
   <Layout>
     <SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
-    <div />
+    <StyledDiv>
+        <h3>Welcome!</h3>
+        <p>Click the links above to see more.</p>
+         <a href="https://github.com/jordanrendall">
+         <Img fixed={data.file.childImageSharp.fixed}/>
+         </a>
+      </StyledDiv>
   </Layout>
 );
 
 export default IndexPage;
+
+export const pageQuery = graphql`
+query {
+    file(relativePath: { eq: "GitHub-Mark-32px.png" }) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        # Makes it trivial to update as your page's design changes.
+        fixed(width: 125, height: 125) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }
+
+`;

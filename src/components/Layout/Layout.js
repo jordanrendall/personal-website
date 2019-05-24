@@ -17,7 +17,7 @@ import './Layout.css';
 const ContentWrapper = styled.main`
   display: grid;
   justify-content: space-around;
-
+  
   /* grid-template-rows: auto 1fr auto; */
 `;
 

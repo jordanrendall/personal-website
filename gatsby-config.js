@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Jordan Rendall's Blog!`,
+    title: `Jordan Rendall's Site`,
     description: `This is a Gatsby based and templated blog using static page generation to improve speed and smooth operation`,
     author: `Jordan Rendall`,
+    twitterHandle: '@tjordanrendall',
+    
     menuLinks: [
       {
         name: 'Home',

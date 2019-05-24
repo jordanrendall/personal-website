@@ -7,6 +7,7 @@ const StyledFooter = styled.footer`
   justify-self: flex-end;
   color: white;
   min-width: 100vw;
+  font-size: 0.8rem;
 `;
 
 export default StyledFooter;
