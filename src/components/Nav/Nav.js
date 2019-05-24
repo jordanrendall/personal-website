@@ -18,7 +18,6 @@ const Nav = () => {
       }
     `
   );
-  console.log(data);
   return (
     <NavStyles>
       {data.site.siteMetadata.menuLinks.map(i => {
