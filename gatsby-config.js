@@ -4,7 +4,7 @@ module.exports = {
     description: `This is a Gatsby based and templated blog using static page generation to improve speed and smooth operation`,
     author: `Jordan Rendall`,
     twitterHandle: '@tjordanrendall',
-    
+
     menuLinks: [
       {
         name: 'Home',
@@ -50,7 +50,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/site-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/catIcon.svg`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
