@@ -35,7 +35,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
-
+    `gatsby-mdx`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

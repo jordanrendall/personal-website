@@ -14,10 +14,14 @@ const StyledTitle = styled.span`
 const blogPostsPage = ({ data }) => (
   <Layout>
     <SEO title='Blog Posts' keywords={[`gatsby`, `application`, `react`]} />
-    {data.allMarkdownRemark.edges.map(({ node }) => (
+    {data.allMdx.edges.map(({ node }) => (
       <div key={node.id}>
         <Link to={node.fields.slug}>
-        <StyledTitle><h3>{node.frontmatter.title} </h3><h5>{node.frontmatter.date}</h5></StyledTitle>
+          <StyledTitle>
+            <h3>{node.frontmatter.title} </h3>
+            <h5>{node.frontmatter.date}</h5>
+          </StyledTitle>
+          <h6>{node.timeToRead} min</h6>
           <p>{node.excerpt}</p>
         </Link>
       </div>
@@ -29,7 +33,7 @@ export default blogPostsPage;
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
       edges {
         node {
@@ -42,6 +46,7 @@ export const pageQuery = graphql`
             slug
           }
           excerpt
+          timeToRead
         }
       }
     }

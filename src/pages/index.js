@@ -21,7 +21,7 @@ const IndexPage = ({ data }) => (
     <StyledDiv>
       <h3>Welcome!</h3>
       <p>Click the links above to see more.</p>
-      <a href='https://github.com/jordanrendall'>
+      <a href='https://github.com/jordanrendall' target='_blank'>
         <Img fixed={data.file.childImageSharp.fixed} />
       </a>
     </StyledDiv>
@@ -36,7 +36,7 @@ export const pageQuery = graphql`
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
-        fixed(width: 125, height: 125) {
+        fixed(width: 50, height: 50) {
           ...GatsbyImageSharpFixed
         }
       }
