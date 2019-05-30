@@ -3,3 +3,4 @@ public/
 .cache/
 other_articles/
 .DS_Store
+.env
