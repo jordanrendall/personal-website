@@ -1,7 +1,11 @@
+require('dotenv').config({
+  path: `.env`,
+});
+
 module.exports = {
   siteMetadata: {
-    title: `Jordan Rendall's Site`,
-    description: `This is a Gatsby based and templated blog using static page generation to improve speed and smooth operation`,
+    title: process.env.SITE_TITLE,
+    description: process.env.SITE_DESCRIPTION,
     author: `Jordan Rendall`,
     twitterHandle: '@tjordanrendall',
 
@@ -31,7 +35,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
-
+    `gatsby-mdx`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -44,8 +48,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `JordanRendallsBlog`,
-        short_name: `jrBlog`,
+        name: process.env.MANIFEST_NAME,
+        short_name: process.env.MANIFEST_SHORTNAME,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,

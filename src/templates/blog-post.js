@@ -1,18 +1,18 @@
 import React from 'react';
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout/Layout';
-import SEO from '../components/SEO/seo'
+import SEO from '../components/SEO/seo';
 
 const blogPost = ({ data }) => {
-  const post = data.markdownRemark;
+  const post = data.mdx;
   return (
     <Layout>
-    <SEO title={post.frontmatter.title} />
+      <SEO title={post.frontmatter.title} />
 
       <div>
         <h1>{post.frontmatter.title}</h1>
-        <h2>{post.frontmatter.date}</h2>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <MDXRenderer>{post.code.body}</MDXRenderer>
       </div>
     </Layout>
   );
@@ -22,10 +22,12 @@ export default blogPost;
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
+      }
+      code {
+        body
       }
     }
   }
