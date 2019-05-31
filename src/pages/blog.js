@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import Image from '../components/Image';
-import SEO from '../components/SEO';
+import SEO from '../components/seo';
 import styled from 'styled-components';
 
 const StyledPost = styled.div`
