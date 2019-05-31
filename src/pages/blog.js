@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import Image from '../components/Image';
-import SEO from '../components/seo';
+import SEO from '../components/SEO';
 import styled from 'styled-components';
 
 const StyledPost = styled.div`
@@ -38,8 +38,7 @@ const StyledPost = styled.div`
 
   &:hover,
   :focus,
-  :active
-   {
+  :active {
     outline: 1px solid black;
     color: black;
   }
