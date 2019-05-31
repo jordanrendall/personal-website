@@ -1,6 +1,6 @@
 node_modules/
 public/
 .cache/
-other_articles/
+unpublished_content/
 .DS_Store
 .env
