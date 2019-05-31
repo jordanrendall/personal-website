@@ -9,7 +9,9 @@ const NavStyles = styled.ul`
   a {
     color: white;
     text-decoration: none;
-    &:hover {
+    &:hover,
+    :focus,
+    :active {
       color: yellow;
     }
   }

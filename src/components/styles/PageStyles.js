@@ -20,7 +20,8 @@ const PageStyles = styled.div`
       &:visited {
         color: black;
       }
-      &:hover {
+      &:hover,
+      :focus {
         color: grey;
       }
     }

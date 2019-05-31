@@ -36,7 +36,10 @@ const StyledPost = styled.div`
     grid-area: excerpt;
   }
 
-  &:hover {
+  &:hover,
+  :focus,
+  :active
+   {
     outline: 1px solid black;
     color: black;
   }
@@ -48,7 +51,7 @@ const blogPostsPage = ({ data }) => (
     {data.allMdx.edges.map(({ node }) => (
       <Link key={node.id} to={node.fields.slug}>
         <StyledPost>
-          <h1>{node.frontmatter.title} </h1>
+          <h1>{node.frontmatter.title}</h1>
           <h2>{node.frontmatter.date}</h2>
           <h3>{node.timeToRead} min</h3>
           <p>{node.excerpt}</p>
