@@ -1,5 +1,5 @@
 import React from 'react';
-import NavStyles from './NavStyles';
+import NavStyles from './styles/NavStyles';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 
 const Nav = () => {

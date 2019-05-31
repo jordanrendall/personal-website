@@ -14,15 +14,15 @@ const PageStyles = styled.div`
     align-items: center;
     padding: 20px;
     * a {
-    color: black;
-    text-decoration: none;
-    
-    &:visited {
       color: black;
-    }
-    &:hover {
-      color: grey
-      ;
+      text-decoration: none;
+
+      &:visited {
+        color: black;
+      }
+      &:hover {
+        color: grey;
+      }
     }
   }
 

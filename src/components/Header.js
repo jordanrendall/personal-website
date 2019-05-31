@@ -2,8 +2,12 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import React from 'react';
-import Nav from '../Nav/Nav';
-import { StyledHeader, StyledHeaderTitle, StyledH1 } from './HeaderStyles';
+import Nav from './Nav';
+import {
+  StyledHeader,
+  StyledHeaderTitle,
+  StyledH1,
+} from './styles/HeaderStyles';
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>
