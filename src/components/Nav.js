@@ -21,7 +21,11 @@ const Nav = () => {
   return (
     <NavStyles>
       {data.site.siteMetadata.menuLinks.map(i => {
-        return <Link to={i.link}>{i.name}</Link>;
+        return (
+          <li>
+            <Link to={i.link}>{i.name}</Link>
+          </li>
+        );
       })}
     </NavStyles>
   );

@@ -15,13 +15,23 @@ const StyledDiv = styled.div`
   align-content: center;
 `;
 
+const Title = styled.span`
+  font-size: 2rem;
+  padding: 20px;
+  font-weight: bold;
+`;
+
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
     <StyledDiv>
-      <h3>Welcome!</h3>
+      <Title>Welcome!</Title>
       <p>Click the links above to see more.</p>
-      <a href='https://github.com/jordanrendall' target='_blank'>
+      <a
+        aria-label='github link'
+        href='https://github.com/jordanrendall'
+        target='_blank'
+      >
         <Img fixed={data.file.childImageSharp.fixed} />
       </a>
     </StyledDiv>

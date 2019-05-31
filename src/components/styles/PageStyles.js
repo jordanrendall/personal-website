@@ -13,7 +13,7 @@ const PageStyles = styled.div`
     justify-content: center;
     align-items: center;
     padding: 20px;
-    * a {
+    a {
       color: black;
       text-decoration: none;
 

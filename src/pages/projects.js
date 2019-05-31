@@ -8,13 +8,19 @@ import styled from 'styled-components';
 const StyledDiv = styled.div`
   display: flex;
   justify-content: space-around;
+
+  h1 {
+    font-size: 2rem;
+    padding: 20px;
+    font-weight: bold;
+  }
 `;
 
 const OtherProjectsPage = () => (
   <Layout>
     <SEO title='Projects' />
     <StyledDiv>
-      <h2>Coming Soon!</h2>
+      <h1>Coming Soon!</h1>
     </StyledDiv>
 
     <StyledDiv>
