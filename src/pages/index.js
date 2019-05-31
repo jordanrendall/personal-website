@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import Layout from '../components/Layout/Layout';
-import Image from '../components/Image/image';
-import SEO from '../components/SEO/seo';
+import Layout from '../components/Layout';
+import Image from '../components/Image';
+import SEO from '../components/SEO';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';

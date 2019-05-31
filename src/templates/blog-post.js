@@ -1,8 +1,8 @@
 import React from 'react';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout/Layout';
-import SEO from '../components/SEO/seo';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 const blogPost = ({ data }) => {
   const post = data.mdx;

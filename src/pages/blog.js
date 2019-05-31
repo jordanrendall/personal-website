@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Layout from '../components/Layout/Layout';
-import Image from '../components/Image/image';
-import SEO from '../components/SEO/seo';
+import Layout from '../components/Layout';
+import Image from '../components/Image';
+import SEO from '../components/seo';
 import styled from 'styled-components';
 
 const StyledTitle = styled.span`
