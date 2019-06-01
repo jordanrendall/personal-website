@@ -10,13 +10,14 @@ const StyledBlogPost = styled.div`
   flex-direction: column;
   justify-content: space-around;
   width: 80vw;
-  padding-bottom: 15px;
+  padding-top: 15px;
 `;
 
 const StyledLink = styled.span`
   display: flex;
   flex-direction: column;
   width: 80vw;
+  padding-bottom: 15px;
 
   #back {
     align-self: center;
@@ -28,7 +29,13 @@ const blogPost = ({ data }) => {
   return (
     <Layout>
       <SEO title={post.frontmatter.title} />
+      <StyledLink>
+        <Link id='back' to='/blog'>
+          Back
+        </Link>
+      </StyledLink>
       <StyledBlogPost>
+        <hr />
         <div>
           <h1>{post.frontmatter.title}</h1>
           <MDXRenderer>{post.code.body}</MDXRenderer>

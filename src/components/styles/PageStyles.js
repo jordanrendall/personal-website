@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 const PageStyles = styled.div`
   background-color: var(--content-bg-1);
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-gap: 100px;
+  display: flex;
+  flex-direction: column;
+  /* grid-template-rows: auto 1fr auto; */
+  /* grid-gap: 100px; */
   min-height: 100vh;
   font-family: Geneva, Arial;
   * {

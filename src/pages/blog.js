@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
@@ -9,6 +9,7 @@ import styled from 'styled-components';
 const StyledPost = styled.div`
   display: grid;
   width: 80vw;
+
   grid-template-columns: 3fr 1fr;
   grid-template-areas:
     'title date'
@@ -47,15 +48,16 @@ const StyledPost = styled.div`
 const StyledButton = styled.button`
   display: flex;
   padding: 10px;
+  margin-top: 10px;
   background: var(--greenSheen);
   font-size: 1rem;
   border-radius: 10px;
   justify-content: center;
 
-  &:hover, 
+  &:hover,
   :active,
-  :focus{
-    background: hsla(170,40%,60%, 0.8);
+  :focus {
+    background: hsla(170, 40%, 60%, 0.8);
   }
 `;
 
@@ -63,38 +65,42 @@ class blogPostsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      blogType: 'dev'
-    }
+      blogType: 'dev',
+    };
   }
-  changeBlogType = (e) => {
+  changeBlogType = e => {
     e.preventDefault();
     this.setState({
-      blogType: this.state.blogType === 'dev' ? 'personal' : 'dev'
-    })
-  }
-  render(){
+      blogType: this.state.blogType === 'dev' ? 'personal' : 'dev',
+    });
+  };
+  render() {
     const data = this.props.data;
     return (
       <Layout>
-      <SEO title='Blog Posts' keywords={[`gatsby`, `application`, `react`]} />
-      <StyledButton onClick={this.changeBlogType}>{this.state.blogType === 'dev' ? 'Software Development' : 'Personal'} -> {this.state.blogType === 'dev' ? 'Personal' : 'Software Development'}</StyledButton>
-      {data.allMdx.edges.map(({ node }) => (
-        node.frontmatter.blogType === this.state.blogType && (
-  
-          <Link key={node.id} to={node.fields.slug}>
-          <StyledPost>
-            <h1>{node.frontmatter.title}</h1>
-            <h2>{node.frontmatter.date}</h2>
-            <h3>{node.timeToRead} min</h3>
-            <p>{node.excerpt}</p>
-          </StyledPost>
-        </Link>
-          )
-      ))}
-    </Layout>
-    )
-  }   
-} 
+        <SEO title='Blog Posts' keywords={[`gatsby`, `application`, `react`]} />
+        <StyledButton onClick={this.changeBlogType}>
+          {this.state.blogType === 'dev' ? 'Software Development' : 'Personal'}{' '}
+          ->{' '}
+          {this.state.blogType === 'dev' ? 'Personal' : 'Software Development'}
+        </StyledButton>
+        {data.allMdx.edges.map(
+          ({ node }) =>
+            node.frontmatter.blogType === this.state.blogType && (
+              <Link key={node.id} to={node.fields.slug}>
+                <StyledPost>
+                  <h1>{node.frontmatter.title}</h1>
+                  <h2>{node.frontmatter.date}</h2>
+                  <h3>{node.timeToRead} min</h3>
+                  <p>{node.excerpt}</p>
+                </StyledPost>
+              </Link>
+            )
+        )}
+      </Layout>
+    );
+  }
+}
 
 export default blogPostsPage;
 
