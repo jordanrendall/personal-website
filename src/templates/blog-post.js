@@ -19,7 +19,7 @@ const StyledLink = styled.span`
   width: 80vw;
   padding-bottom: 15px;
 
-  #back {
+  .back-btn {
     align-self: center;
   }
 `;
@@ -30,7 +30,7 @@ const blogPost = ({ data }) => {
     <Layout>
       <SEO title={post.frontmatter.title} />
       <StyledLink>
-        <Link id='back' to='/blog'>
+        <Link className='back-btn' to='/blog'>
           Back
         </Link>
       </StyledLink>
@@ -43,7 +43,7 @@ const blogPost = ({ data }) => {
         <hr />
       </StyledBlogPost>
       <StyledLink>
-        <Link id='back' to='/blog'>
+        <Link className='back-btn' to='/blog'>
           Back
         </Link>
       </StyledLink>
