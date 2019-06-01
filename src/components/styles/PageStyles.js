@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 const PageStyles = styled.div`
+  /* Main content area */
   background-color: ${props => props.theme.mustard};
   display: flex;
   flex-direction: column;
-  /* grid-template-rows: auto 1fr auto; */
-  /* grid-gap: 100px; */
   min-height: 100vh;
   font-family: Geneva, Arial;
   * {
