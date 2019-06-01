@@ -4,15 +4,15 @@ date: '2018-09-27'
 blogType: 'personal'
 ---
 
-Inspiration
+## Inspiration
 
 I am taking inspiration from a friend who writes and uploads to the inter-webs a race report within a few days of each of his triathlons. Obviously, I have not followed the same timeframe, as we are approaching a full month past due. However, I will still go ahead with the exciting (for some, I hope!) tale of my race in Toronto that resulted in obtaining a qualification spot for the 2019 Age-Group World Championships in Lausanne, Switzerland.
 
-Why the Toronto Triathlon Festival?
+## Why the Toronto Triathlon Festival?
 
 After placing second in my age group in Guelph at Guelph Lake I Sprint Triathlon, and third the following weekend in a World Championships qualification race in Welland at the Rose City Sprint Triathlon, I felt ready to add another race to my list and motivated to find another qualifier. The race in Welland only offered one qualification spot per gender, per age-group, and in coming third I did not qualify. I found the Toronto Triathlon Festival, which offered three automatic qualification spots per age group. I thought this could be my chance since I had been doing well enough so far and already learned from my mistakes in each race. I signed up late.
 
-Pre-Race
+## Pre-Race
 
 I had stayed at my brother’s place in the city the night before after doing a practice swim and picking up my race kit (swim cap, race number/bib and having my number written on my arms). I made my way to Ontario Place for an 8AM arrival, the beginning of the open transition zone for Sprint athletes.
 
@@ -32,7 +32,7 @@ I sat treading water for the few minutes before the start, thinking of my strate
 
 I inched forward a little as the countdown approached the gunshot start; I had placed myself off to the left to give myself a straight shot towards the first buoy. Some people were closer to the corner of the dock but would have to take the outside turn around the buoy. I was not sure what was a better option: to be swarmed on my way to the buoy or to be swarmed around the buoy. I opted for being swarmed around the buoy….
 
-The Swim
+## The Swim
 
 The gun went off and I tried to find my own space in the first leg of the swim. That did not quite work out the way I planned — more people showing up in my category than I expected plus the cold water contributed to a sense of panic I thought I had overcome in Guelph. I was drafting a bit until the first buoy, but was becoming swarmed as I turned the corner.
 
@@ -44,7 +44,7 @@ One fun part of the swim — after my freakout — was finding that I was actual
 
 I left the swim to the cheers of spectators, pulling off my swim cap, goggles, and ear plugs — yes, I cannot really swim without them!
 
-Transition 1: Swim to Bike
+## Transition 1: Swim to Bike
 
 I ran up a slight hill to the transition zone whilst undoing my wetsuit zipper, sliding the sleeves off my arms and down to my waist. I found my bike quickly — it helps that I am in the youngest age group regarding bike racks (29 and under), since they are usually close to the bike exit.
 
@@ -56,7 +56,7 @@ The helmet has been a struggle for me in all my races so far. I can never seem t
 
 I had my bike shoes clipped into my bike already, with elastic bands holding the shoes in a horizontal position. Once I had my helmet, I started the run with my bike out and up a pretty steep pavement ramp to the mount line.
 
-The Bike
+## The Bike
 
 I stopped momentarily to jump on to my bike and start pedalling right away with my feet on top of my shoes. The elastics broke right away — great — but I could not get my feet into the shoes easily! Since the shoes had sat in the rain while I swam, the insoles scrunched up when I tried to put my feet in. I had to pull over to a stop to fix it.
 
@@ -64,13 +64,13 @@ The rest of the bike was smooth. I knew that the first half would be slightly up
 
 Apparently, I passed 61 people in the overall placing in just the bike alone. I made it up to the no-passing zone on the bridge towards transition, unclipped while riding, hopped off, but my shoes started bouncing off the ground. One of them unclipped and I had to stop and grab it. At that point, I reached down and unclipped the other shoe and began running with them in my hands — so awkward — while going downhill, barefoot, on wet pavement, trying not to come toppling down.
 
-Transition 2: Bike to Run
+## Transition 2: Bike to Run
 
 I again found my transition spot easily and made sure to rack my bike before unclipping my helmet — Welland taught me this tidbit. I did not have as much trouble with my helmet as in Transition 1, but as in all of my races so far, I was slightly falling over while trying to put my running shoes on. My legs were wobbly from pushing on the bike, and my heart was racing — it was hard to slow things down, even though I reminded myself near the end of the bike to use two hands per shoe and take a second to breathe in the upcoming transition.
 
 I had placed my running shoes in a plastic bag to keep them from becoming too wet, which was a good idea. However, I tried putting the second shoe on while it was still in the bag and it stuck to my foot as I tried to leave my transition spot. I shook my foot to get it off and wasted a few seconds.
 
-The Run
+## The Run
 
 I exited transition at a good speed following another speedy competitor, to the comments of a slower runner ahead of us who exclaimed, “Wow, you guys are insane!”
 
@@ -88,7 +88,7 @@ With about 750m to go, I heard footsteps and turned to see he was right on my ta
 
 In the end, I was only ahead of him by 3 seconds, placing 3rd in my age group (M25-29) and securing a qualification spot for Age Group World Championships next fall in Switzerland. So, I am glad I raced the way I did!
 
-Conclusion
+## Conclusion
 
 I had a lot of fun racing in downtown Toronto and being able to make a weekend out of it with my brother. My 3rd place finish secured me a qualification spot for Age-Group World’s in Switzerland next year in the Sprint distance triathlon. I have a good year of learning ahead of me and hope to make large gains in my swim and transitions, while pushing for strength on the bike and speed on the run.
 
