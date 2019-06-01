@@ -49,7 +49,7 @@ const StyledButton = styled.button`
   display: flex;
   padding: 10px;
   margin-top: 10px;
-  background: var(--greenSheen);
+  background: ${props => props.theme.green};
   font-size: 1rem;
   border-radius: 10px;
   justify-content: center;

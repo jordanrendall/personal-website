@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const PageStyles = styled.div`
-  background-color: var(--content-bg-1);
+  background-color: ${props => props.theme.mustard};
   display: flex;
   flex-direction: column;
   /* grid-template-rows: auto 1fr auto; */
@@ -9,7 +9,7 @@ const PageStyles = styled.div`
   min-height: 100vh;
   font-family: Geneva, Arial;
   * {
-    color: var(--text-color);
+    color: ${props => props.theme.black}; /*var(--text-color);*/
   }
   main {
     display: grid;
@@ -17,11 +17,11 @@ const PageStyles = styled.div`
     align-items: center;
     padding: 20px;
     a {
-      color: black;
+      color: ${props => props.theme.black};
       text-decoration: none;
 
       &:visited {
-        color: black;
+        color: ${props => props.theme.black};
       }
       &:hover,
       :focus {

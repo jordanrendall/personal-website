@@ -5,7 +5,7 @@ const NavStyles = styled.ul`
   justify-content: space-around;
   margin: 20px;
   transform: skew(0, 5deg);
-  color: var(--text-color);
+  color: ${props => props.theme.black};
   list-style-type: none;
 
   a {

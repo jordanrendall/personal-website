@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
-  background: var(--content-bg-3);
+  background: ${props => props.theme.green};
   display: flex;
   justify-content: center;
-  color: var(--text-color);
+  color: ${props => props.theme.black};
   min-width: 100vw;
   font-size: 0.8rem;
   align-self: flex-end;

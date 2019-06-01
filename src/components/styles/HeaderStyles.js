@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
-  background: var(--nav-bg-color);
+  background: ${props => props.theme.green};
   transform: skew(0, -5deg);
   margin-bottom: 1.45rem;
-  border-bottom: 5px solid var(--text-color);
-  border-top: 5px solid var(--text-color);
+  border-bottom: 5px solid ${props => props.theme.black};
+  border-top: 5px solid ${props => props.theme.black};
   padding: 10px;
 `;
 
