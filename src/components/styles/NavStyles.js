@@ -5,15 +5,19 @@ const NavStyles = styled.ul`
   justify-content: space-around;
   margin: 20px;
   transform: skew(0, 5deg);
+  color: var(--text-color);
+  list-style-type: none;
 
   a {
-    color: white;
     text-decoration: none;
     &:hover,
     :focus,
     :active {
       color: yellow;
     }
+  }
+  li {
+    padding-bottom: 10px;
   }
 `;
 

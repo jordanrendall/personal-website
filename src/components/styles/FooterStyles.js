@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
-  background: black;
+  background: var(--content-bg-3);
   display: flex;
   justify-content: center;
   justify-self: flex-end;
-  color: white;
+  color: var(--text-color);
   min-width: 100vw;
   font-size: 0.8rem;
 `;

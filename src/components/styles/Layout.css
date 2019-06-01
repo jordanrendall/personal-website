@@ -1,4 +1,4 @@
-:root[theme="nominal"] {
+:root {
   /* 
   liver #50514F
   orange #F25F5C
@@ -13,7 +13,7 @@
   --greenSheen: hsl(170,40%,60%);
 
   --text-color: var(--darkLiver);
-  --nav-bg-color:var(--sunsetOrange);
+  --nav-bg-color:var(--greenSheen);
   --content-bg-1: var(--mustard);
   --content-bg-2: var(--lapisLazuli);
   --content-bg-3: var(--greenSheen);

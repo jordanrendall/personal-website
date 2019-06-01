@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
-  background: black;
+  background: var(--nav-bg-color);
   transform: skew(0, -5deg);
   margin-bottom: 1.45rem;
-  border-bottom: 5px solid black;
+  border-bottom: 5px solid var(--text-color);
+  border-top: 5px solid var(--text-color);
   padding: 10px;
 `;
 
@@ -13,7 +14,6 @@ const StyledHeaderTitle = styled.div`
   max-width: 960px;
   padding: 2rem;
   transform: skew(0, 5deg);
-
 `;
 
 const StyledH1 = styled.h1`
