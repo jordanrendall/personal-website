@@ -21,7 +21,7 @@ const ContentWrapper = styled.main`
   /* grid-template-rows: auto 1fr auto; */
 `;
 
-const Layout = ({ children }) => {
+const Layout = ({ children }, theme) => {
   const data = useStaticQuery(
     graphql`
       query SiteTitleQuery {
