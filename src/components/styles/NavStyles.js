@@ -13,7 +13,7 @@ const NavStyles = styled.ul`
     &:hover,
     :focus,
     :active {
-      color: yellow;
+      color: ${props => props.theme.mustard};
     }
   }
   li {
