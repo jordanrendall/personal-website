@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 
 import Layout from '../components/Layout';
 import Image from '../components/Image';
+import ProfilePic from '../components/ProfilePic';
 import SEO from '../components/seo';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
@@ -21,10 +22,21 @@ const Title = styled.span`
   font-weight: bold;
 `;
 
+const StyledImg = styled(Img)`
+  filter: invert(1);
+
+  &:hover,
+  :focus,
+  :active {
+    filter: invert(0);
+  }
+`;
+
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
     <StyledDiv>
+      <ProfilePic />
       <Title>Welcome!</Title>
       <p>Click the links above to see more.</p>
       <a
@@ -32,7 +44,7 @@ const IndexPage = ({ data }) => (
         href='https://github.com/jordanrendall'
         target='_blank'
       >
-        <Img fixed={data.file.childImageSharp.fixed} />
+        <StyledImg fixed={data.file.childImageSharp.fixed} />
       </a>
     </StyledDiv>
   </Layout>
