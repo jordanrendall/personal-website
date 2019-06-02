@@ -15,19 +15,33 @@ import Footer from './Footer';
 import PageStyles from './styles/PageStyles';
 import './styles/Layout.css';
 
-const colorTheme = {
-  liver: '#50514F',
-  orange: '#F25F5C',
-  mustard: '#FFE066',
-  lazuli: '#247BA0',
-  green: '#70C1B3',
-  black: '#393939',
-};
+const purpleTheme = {
+  /*Purple Palette*/
+  darkPurple: '#452884',
+  brightPurple: '#692080',
+  blue: '#2A3B83',
+  darkBlue: '#09164E',
+  gentleDarkPurple: '#7C65AF',
+  gentleBrightPurple: '#975DA9',
+  gentleBlue: '#6674AE',
+  contentFont: "'Roboto', sans-serif",
+  headingFont: "'Source Sans Pro', sans-serif",
+  init: function() {
+    this.navColourPrimary = this.darkPurple;
+    this.navColourSecondary = 'white';
+    this.contentColourPrimary = this.brightPurple;
+    this.contentColourSecondary = 'white';
+    this.otherColourPrimary = this.blue;
+    this.otherColourSecondary = this.gentleBlue;
+
+    return this;
+  },
+}.init();
 
 const ContentWrapper = styled.main`
   display: grid;
   justify-content: space-around;
-
+  margin-bottom: 40px;
   /* grid-template-rows: auto 1fr auto; */
 `;
 
@@ -47,7 +61,7 @@ const Layout = ({ children }) => {
     <SiteContext.Consumer>
       {context => (
         <div className={context.blogType ? 'dev' : 'personal'}>
-          <ThemeProvider theme={colorTheme}>
+          <ThemeProvider theme={purpleTheme}>
             <PageStyles>
               <Header siteTitle={data.site.siteMetadata.title} />
               <ContentWrapper>{children}</ContentWrapper>
