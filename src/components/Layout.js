@@ -9,12 +9,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled, { ThemeProvider } from 'styled-components';
+import SiteContext from '../context/SiteContext';
 import Header from './Header';
 import Footer from './Footer';
 import PageStyles from './styles/PageStyles';
 import './styles/Layout.css';
 
-const theme = {
+const colorTheme = {
   liver: '#50514F',
   orange: '#F25F5C',
   mustard: '#FFE066',
@@ -43,13 +44,19 @@ const Layout = ({ children }) => {
     `
   );
   return (
-    <ThemeProvider theme={theme}>
-      <PageStyles>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <ContentWrapper>{children}</ContentWrapper>
-        <Footer />
-      </PageStyles>
-    </ThemeProvider>
+    <SiteContext.Consumer>
+      {context => (
+        <div className={context.blogType ? 'dev' : 'personal'}>
+          <ThemeProvider theme={colorTheme}>
+            <PageStyles>
+              <Header siteTitle={data.site.siteMetadata.title} />
+              <ContentWrapper>{children}</ContentWrapper>
+              <Footer />
+            </PageStyles>
+          </ThemeProvider>
+        </div>
+      )}
+    </SiteContext.Consumer>
   );
 };
 

@@ -5,6 +5,8 @@ import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import styled from 'styled-components';
 
+
+
 const StyledBlogPost = styled.div`
   display: flex;
   flex-direction: column;

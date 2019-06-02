@@ -10,6 +10,7 @@ const StyledFooter = styled.footer`
   align-self: flex-end;
   position: fixed;
   bottom: 0;
+  border-top: 1px solid ${props => props.theme.black};
 `;
 
 export default StyledFooter;
