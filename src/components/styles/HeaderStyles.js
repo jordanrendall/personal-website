@@ -1,17 +1,21 @@
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
-  background: ${props => props.theme.green};
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  background: ${props => props.theme.navColourPrimary};
   transform: skew(0, -5deg);
   margin-bottom: 1.45rem;
-  border-bottom: 5px solid ${props => props.theme.black};
-  border-top: 5px solid ${props => props.theme.black};
+  border-bottom: 5px solid ${props => props.theme.navColourSecondary};
+  border-top: 5px solid ${props => props.theme.navColourSecondary};
   padding: 10px;
 `;
 
 const StyledHeaderTitle = styled.div`
-  margin: 0 auto;
-  max-width: 960px;
+  display: flex;
+  justify-content: flex-end;
+  /* margin: 0 auto; */
+  /* max-width: 960px; */
   padding: 2rem;
   transform: skew(0, 5deg);
 `;
