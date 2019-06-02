@@ -2,6 +2,7 @@
 title: 'What to Write?'
 date: '2018-10-11'
 blogType: 'personal'
+excerpt: 'How do I determine what to write about? Should it just come to me naturally or should I seek it out? Can I continue the rhyme that I...'
 ---
 
 How do I determine what to write about? Should it just come to me naturally or should I seek it out? Can I continue the rhyme that I have laid out, or did I choose a sound that I cannot shout — from the rooftops, what is it I have here?

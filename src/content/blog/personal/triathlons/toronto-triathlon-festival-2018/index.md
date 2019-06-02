@@ -2,6 +2,7 @@
 title: 'Toronto Triathlon Festival: Sprint Triathlon — July 22nd, 2018'
 date: '2018-09-27'
 blogType: 'personal'
+excerpt: 'After placing second in my age group in Guelph at Guelph Lake I Sprint Triathlon, and third the following weekend in a World Championships qualification race in Welland at the Rose City Sprint Triathlon, I felt ready to add another race to my list and motivated to find another qualifier...'
 ---
 
 ## Inspiration
