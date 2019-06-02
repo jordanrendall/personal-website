@@ -16,6 +16,8 @@ const Header = ({ siteTitle }) => (
       <title>{siteTitle}</title>
       <link rel='canonical' href='https://blog.jordanrendall.com' />
     </Helmet>
+    <Nav />
+
     <StyledHeaderTitle>
       <StyledH1>
         <Link
@@ -28,7 +30,6 @@ const Header = ({ siteTitle }) => (
         </Link>
       </StyledH1>
     </StyledHeaderTitle>
-    <Nav />
   </StyledHeader>
 );
 
