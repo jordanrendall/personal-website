@@ -8,7 +8,7 @@ module.exports = {
     description: process.env.SITE_DESCRIPTION,
     author: `Jordan Rendall`,
     twitterHandle: '@tjordanrendall',
-
+    siteUrl: process.env.SITE_URL,
     menuLinks: [
       {
         name: 'Home',
@@ -64,5 +64,18 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: false,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+      },
+    },
   ],
 };
