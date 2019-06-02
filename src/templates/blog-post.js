@@ -5,14 +5,22 @@ import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import styled from 'styled-components';
 
-
-
 const StyledBlogPost = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 80vw;
   padding-top: 15px;
+
+  hr {
+    height: 2px;
+    background-image: linear-gradient(
+      to right,
+      ${props => props.theme.contentColourPrimary} 0%,
+      ${props => props.theme.contentColourSecondary} 50%,
+      ${props => props.theme.contentColourPrimary} 100%
+    );
+  }
 `;
 
 const StyledLink = styled.span`
