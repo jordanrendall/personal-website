@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 const StyledPost = styled.div`
   display: grid;
-  width: 80vw;
+  width: 90vw;
 
   grid-template-columns: 3fr 1fr;
   grid-template-areas:
@@ -23,7 +23,9 @@ const StyledPost = styled.div`
     font-weight: bold;
   }
   h2 {
+    display: flex;
     grid-area: date;
+    justify-content: flex-end;
     font-size: 1rem;
     font-weight: bold;
   }
@@ -40,7 +42,7 @@ const StyledPost = styled.div`
   &:hover,
   :focus,
   :active {
-    outline: 1px solid black;
+    outline: 1px solid ${props => props.theme.otherColourSecondary};
     color: black;
   }
 `;
@@ -49,13 +51,13 @@ const StyledButton = styled.button`
   display: flex;
   padding: 10px 30px 10px 30px;
   margin-top: 10px;
-  background: ${props => props.theme.green};
+  background: ${props => props.theme.otherColourPrimary};
   font-size: 1rem;
   border-radius: 10px;
   justify-content: center;
   justify-self: center;
   width: fit-content;
-  border: 2px solid ${props => props.theme.black};
+  border: 2px solid ${props => props.theme.contentColourSecondary};
   margin-bottom: 10px;
   &:hover,
   :active,
@@ -75,8 +77,7 @@ const blogPostsPage = props => {
             keywords={[`gatsby`, `application`, `react`]}
           />
           <StyledButton onClick={context.toggleBlogType}>
-            {context.blogType === 'dev' ? 'Software Development' : 'Personal'}{' '}
-            ->{' '}
+            {context.blogType === 'dev' ? 'Software Development' : 'Personal'} →{' '}
             {context.blogType === 'dev' ? 'Personal' : 'Software Development'}
           </StyledButton>
           {data.allMdx.edges.map(
