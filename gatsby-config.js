@@ -61,10 +61,15 @@ module.exports = {
         display: `minimal-ui`,
         icons: [
           {
-            src: `images/favicon.png`,
+            src: `images/site-icon-114x114.png`,
+            sizes: `114x114`,
+            type: `image/png`,
+          },
+          {
+            src: `images/site-icon-228x228.png`,
             sizes: `228x228`,
             type: `image/png`,
-          }, // This path is relative to the root of the site.
+          },
         ],
       },
     },
