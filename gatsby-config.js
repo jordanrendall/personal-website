@@ -54,11 +54,18 @@ module.exports = {
       options: {
         name: process.env.MANIFEST_NAME,
         short_name: process.env.MANIFEST_SHORTNAME,
+        description: process.env.MANIFEST_DESCRIPTION,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+        icons: [
+          {
+            src: `src/images/favicon.png`,
+            sizes: `228x228`,
+            type: `image/png`,
+          }, // This path is relative to the root of the site.
+        ],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
