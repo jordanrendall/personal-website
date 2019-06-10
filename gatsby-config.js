@@ -61,7 +61,7 @@ module.exports = {
         display: `minimal-ui`,
         icons: [
           {
-            src: `src/images/favicon.png`,
+            src: `images/favicon.png`,
             sizes: `228x228`,
             type: `image/png`,
           }, // This path is relative to the root of the site.
