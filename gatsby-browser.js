@@ -12,3 +12,5 @@ import { SiteContextProvider } from './src/context/SiteContext';
 export const wrapRootElement = ({ element }) => (
   <SiteContextProvider>{element}</SiteContextProvider>
 );
+
+export const registerServiceWorker = () => true;
