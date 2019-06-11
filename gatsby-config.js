@@ -41,13 +41,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `icons`,
-        path: `${__dirname}/src/icons`,
-      },
-    },
+
     {
       resolve: `gatsby-mdx`,
       options: {
@@ -66,13 +60,9 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icons: [
-          {
-            src: `icons/favicon-114x114.png`,
-            sizes: `114x114`,
-            type: `image/png`,
-          },
-        ],
+        icon: `src/images/icon.png`,
+        cache_busting_mode: `query`,
+        theme_color_in_head: false,
       },
     },
     `gatsby-plugin-offline`,
