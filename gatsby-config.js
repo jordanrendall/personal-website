@@ -26,7 +26,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -48,6 +47,7 @@ module.exports = {
         extensions: ['.mdx', '.md'],
       },
     },
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
