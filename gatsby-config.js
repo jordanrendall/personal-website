@@ -42,6 +42,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `icons`,
+        path: `${__dirname}/src/icons`,
+      },
+    },
+    {
       resolve: `gatsby-mdx`,
       options: {
         extensions: ['.mdx', '.md'],
