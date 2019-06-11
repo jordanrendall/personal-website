@@ -61,13 +61,8 @@ module.exports = {
         display: `minimal-ui`,
         icons: [
           {
-            src: `images/site-icon-114x114.png`,
+            src: `images/favicon-114x114.png`,
             sizes: `114x114`,
-            type: `image/png`,
-          },
-          {
-            src: `images/site-icon-228x228.png`,
-            sizes: `228x228`,
             type: `image/png`,
           },
         ],
