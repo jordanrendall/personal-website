@@ -1,8 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
-
 import Layout from '../components/Layout';
-import Image from '../components/Image';
 import ProfilePic from '../components/ProfilePic';
 import SEO from '../components/seo';
 import Img from 'gatsby-image';
@@ -28,7 +25,7 @@ const StyledImg = styled(Img)`
   &:hover,
   :focus,
   :active {
-    filter: invert(0);
+    transform: scale(0.9);
   }
 `;
 
@@ -43,6 +40,7 @@ const IndexPage = ({ data }) => (
         aria-label='github link'
         href='https://github.com/jordanrendall'
         target='_blank'
+        rel='noopener noreferrer'
       >
         <StyledImg fixed={data.file.childImageSharp.fixed} />
       </a>

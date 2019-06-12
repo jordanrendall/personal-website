@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link, graphql } from 'gatsby';
 import SiteContext from '../context/SiteContext';
 import Layout from '../components/Layout';
-import Image from '../components/Image';
 import SEO from '../components/seo';
 import styled from 'styled-components';
 
@@ -18,20 +17,26 @@ const StyledPost = styled.div`
   justify-content: space-between;
   padding: 10px;
   h1 {
+    display: grid;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+
     grid-area: title;
-    font-size: 2rem;
+    /* font-size: 2rem; */
+    font-size: calc(10px + 2.5vw);
     font-weight: bold;
   }
   h2 {
     display: flex;
     grid-area: date;
     justify-content: flex-end;
-    font-size: 1rem;
+    font-size: calc(10px + 1.5vw);
     font-weight: bold;
   }
   h3 {
     grid-area: timeToRead;
-    font-size: 1rem;
+    font-size: calc(10px + 1.5vw);
     font-weight: bold;
   }
 
@@ -43,7 +48,6 @@ const StyledPost = styled.div`
   :focus,
   :active {
     outline: 1px solid ${props => props.theme.otherColourSecondary};
-    color: black;
   }
 `;
 
@@ -58,6 +62,7 @@ const StyledButton = styled.button`
   justify-self: center;
   width: fit-content;
   border: 2px solid ${props => props.theme.contentColourSecondary};
+  color: ${props => props.theme.contentColourSecondary};
   margin-bottom: 10px;
   &:hover,
   :active,

@@ -33,7 +33,8 @@ const purpleTheme = {
     this.contentColourSecondary = 'white';
     this.otherColourPrimary = this.blue;
     this.otherColourSecondary = this.gentleBlue;
-
+    this.contentFont = this.contentFont;
+    this.headingFont = this.headingFont;
     return this;
   },
 }.init();

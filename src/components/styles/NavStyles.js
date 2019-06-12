@@ -15,6 +15,9 @@ const NavStyles = styled.ul`
   list-style-type: none;
 
   a {
+    &:visited {
+      color: ${props => props.theme.navColourSecondary};
+    }
     text-decoration: none;
     &:hover,
     :focus,

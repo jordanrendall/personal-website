@@ -14,6 +14,8 @@ const StyledBlogPost = styled.div`
 
   hr {
     height: 2px;
+    width: 100%;
+    border: none;
     background-image: linear-gradient(
       to right,
       ${props => props.theme.contentColourPrimary} 0%,

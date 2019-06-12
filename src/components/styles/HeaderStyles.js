@@ -18,6 +18,17 @@ const StyledHeaderTitle = styled.div`
   /* max-width: 960px; */
   padding: 2rem;
   transform: skew(0, 5deg);
+  a {
+    color: ${props => props.theme.navColourSecondary};
+    &:hover,
+    :active,
+    :focus {
+      color: ${props => props.theme.otherColourSecondary};
+    }
+    &:visited {
+      color: ${props => props.theme.navColourSecondary};
+    }
+  }
 `;
 
 const StyledH1 = styled.h1`
