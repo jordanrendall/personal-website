@@ -2,8 +2,12 @@
 title: 'My First Coaching Season: Part 1'
 date: '2018-10-02'
 blogType: 'personal'
+banner: './images/banner.png'
+
 excerpt: 'Who knew that I would love coaching so much? The responsibility and challenge to make the best of the day for so many people...'
 ---
+
+![Banner Image.](./images/banner.png)
 
 ## Introduction
 

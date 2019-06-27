@@ -24,6 +24,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `blogType`,
       value: node.frontmatter.blogType,
     });
+    createNodeField({
+      node,
+      name: `banner`,
+      value: node.frontmatter.banner,
+    });
   }
 };
 

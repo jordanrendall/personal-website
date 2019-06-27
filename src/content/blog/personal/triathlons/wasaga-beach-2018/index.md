@@ -2,8 +2,12 @@
 title: 'Wasaga Beach Triathlon: Olympic Distance — August 25, 2018'
 date: '2018-09-30'
 blogType: 'personal'
+banner: './images/banner.png'
+
 excerpt: 'I was not banking on winning my age-group when I signed up, but by the time I was at the start line I had qualified in the sprint distance (at the Toronto Triathlon Festival) so really anything was possible...'
 ---
+
+![Banner Image.](./images/banner.png)
 
 ### Overall Time: 2:10:58
 
