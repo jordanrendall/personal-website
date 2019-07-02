@@ -3,33 +3,16 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import React from 'react';
 import Nav from './Nav';
-import {
-  StyledHeader,
-  StyledHeaderTitle,
-  StyledH1,
-} from './styles/HeaderStyles';
+import { StyledHeader } from './styles/HeaderStyles';
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, scrollPercentage }) => (
   <StyledHeader>
     <Helmet>
       <meta charSet='utf-8' />
       <title>{siteTitle}</title>
       <link rel='canonical' href='https://blog.jordanrendall.com' />
     </Helmet>
-    <Nav />
-
-    <StyledHeaderTitle>
-      <StyledH1>
-        <Link
-          to='/'
-          style={{
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </StyledH1>
-    </StyledHeaderTitle>
+    <Nav siteTitle={siteTitle} />
   </StyledHeader>
 );
 

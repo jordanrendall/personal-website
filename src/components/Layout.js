@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled, { ThemeProvider } from 'styled-components';
@@ -24,17 +24,58 @@ const purpleTheme = {
   gentleDarkPurple: '#7C65AF',
   gentleBrightPurple: '#975DA9',
   gentleBlue: '#6674AE',
+
+  /*Complementary Blue-Orange Palette*/
+  grayBlue: '#4A6770',
+  midBlue: '#128DB3',
+  lightBlue: '#6BDCFF',
+  orange: '#F07800',
+  lightOrange: '#FFCC5D',
+  lightBrown: '#BC9A78',
+  white: '#ffffff',
+
+  /*Tetrad blue-green,blue,orange,yellow */
+  /* Palette URL: http://paletton.com/#uid=73r0s0kszzThMJ9n6CPyLsIAvmm */
+  colorprimary0: '#1980AC',
+  colorprimary1: '#5FAACA',
+  colorprimary2: '#3992B8',
+  colorprimary3: '#066690',
+  colorprimary4: '#045070',
+
+  colorsecondary10: '#2842B8',
+  colorsecondary11: '#6C7ED2',
+  colorsecondary12: '#475DC2',
+  colorsecondary13: '#122A9C',
+  colorsecondary14: '#0C207A',
+
+  colorsecondary20: '#FFBC1B',
+  colorsecondary21: '#FFD571',
+  colorsecondary22: '#FFC947',
+  colorsecondary23: '#E5A200',
+  colorsecondary24: '#B27E00',
+
+  colorcomplement0: '#FF941B',
+  colorcomplement1: '#FFBC71',
+  colorcomplement2: '#FFA847',
+  colorcomplement3: '#E57900',
+  colorcomplement4: '#B25E00',
+
   contentFont: "'Roboto', sans-serif",
   headingFont: "'Source Sans Pro', sans-serif",
   init: function() {
-    this.navColourPrimary = this.darkPurple;
-    this.navColourSecondary = 'white';
-    this.contentColourPrimary = this.brightPurple;
-    this.contentColourSecondary = 'white';
-    this.otherColourPrimary = this.blue;
-    this.otherColourSecondary = this.gentleBlue;
-    this.contentFont = this.contentFont;
-    this.headingFont = this.headingFont;
+    this.colours = {
+      Dominant: this.midBlue,
+      Accent: this.orange,
+      TextDark: this.grayBlue,
+      TextLight: this.white,
+      Background: this.white,
+      Borders: this.grayBlue,
+    };
+    this.fonts = {
+      Content: this.contentFont,
+      Headings: this.headingFont,
+    };
+
     return this;
   },
 }.init();
@@ -47,6 +88,12 @@ const ContentWrapper = styled.main`
 `;
 
 const Layout = ({ children }) => {
+  // state = {
+  //   scrollPercentage: '0',
+  // };
+
+  const [scrollPercentage] = useState(50);
+  //need to move out into functional component
   const data = useStaticQuery(
     graphql`
       query SiteTitleQuery {
@@ -64,7 +111,10 @@ const Layout = ({ children }) => {
         <div className={context.blogType ? 'dev' : 'personal'}>
           <ThemeProvider theme={purpleTheme}>
             <PageStyles>
-              <Header siteTitle={data.site.siteMetadata.title} />
+              <Header
+                scrollPercentage={scrollPercentage}
+                siteTitle={data.site.siteMetadata.title}
+              />
               <ContentWrapper>{children}</ContentWrapper>
               <Footer />
             </PageStyles>

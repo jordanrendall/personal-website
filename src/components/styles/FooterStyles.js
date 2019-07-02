@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
-  background: ${props => props.theme.navColourPrimary};
+  background: ${props => props.theme.colours.Background};
   display: flex;
   justify-content: center;
-  color: ${props => props.theme.navColourSecondary};
+  color: ${props => props.theme.colours.Text};
   min-width: 100vw;
   font-size: 1rem;
   align-self: flex-end;
   position: fixed;
   bottom: 0;
-  border-top: 2px solid ${props => props.theme.navColourSecondary};
-  padding: 10px;
+  border-top: 2px solid ${props => props.theme.colours.Borders};
+  padding: 2px;
+  /* font-weight:; */
 `;
 
 export default StyledFooter;

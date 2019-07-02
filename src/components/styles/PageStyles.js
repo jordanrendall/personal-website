@@ -4,20 +4,20 @@ const PageStyles = styled.div`
   display: flex;
   flex-direction: column;
 
-  background: ${props => props.theme.contentColourPrimary};
+  background: ${props => props.theme.colours.Background};
   min-height: 100vh;
-  color: ${props => props.theme.contentColourSecondary};
+  color: ${props => props.theme.colours.TextDark};
 
   main {
     a {
-      color: ${props => props.theme.contentColourSecondary};
+      color: ${props => props.theme.colours.TextDark};
 
       &:visited {
-        color: ${props => props.theme.contentColourSecondary};
+        color: ${props => props.theme.colours.TextDark};
       }
       &:hover,
       :focus {
-        color: ${props => props.theme.contentColourSecondary};
+        color: ${props => props.theme.colours.Dominant};
       }
       text-decoration: none;
     }

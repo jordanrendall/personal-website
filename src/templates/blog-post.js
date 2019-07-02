@@ -9,7 +9,7 @@ const StyledBlogPost = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 80vw;
+  width: 90vw;
   padding-top: 15px;
 
   hr {
@@ -18,9 +18,9 @@ const StyledBlogPost = styled.div`
     border: none;
     background-image: linear-gradient(
       to right,
-      ${props => props.theme.contentColourPrimary} 0%,
-      ${props => props.theme.contentColourSecondary} 50%,
-      ${props => props.theme.contentColourPrimary} 100%
+      ${props => props.theme.colours.Background} 0%,
+      ${props => props.theme.colours.Text} 50%,
+      ${props => props.theme.colours.Background} 100%
     );
   }
 `;

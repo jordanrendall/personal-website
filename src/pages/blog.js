@@ -47,7 +47,7 @@ const StyledPost = styled.div`
   &:hover,
   :focus,
   :active {
-    outline: 1px solid ${props => props.theme.otherColourSecondary};
+    outline: 1px solid ${props => props.theme.colours.Borders};
   }
 `;
 
@@ -55,19 +55,20 @@ const StyledButton = styled.button`
   display: flex;
   padding: 10px 30px 10px 30px;
   margin-top: 10px;
-  background: ${props => props.theme.otherColourPrimary};
+  background: ${props => props.theme.colours.Dominant};
   font-size: 1rem;
   border-radius: 10px;
   justify-content: center;
   justify-self: center;
   width: fit-content;
-  border: 2px solid ${props => props.theme.contentColourSecondary};
-  color: ${props => props.theme.contentColourSecondary};
+  border: 2px solid ${props => props.theme.colours.Borders};
+  color: ${props => props.theme.colours.TextLight};
   margin-bottom: 10px;
   &:hover,
   :active,
   :focus {
-    background: hsla(170, 40%, 60%, 0.8);
+    background: ${props => props.theme.colours.Accent};
+    color: ${props => props.theme.colours.TextDark};
   }
 `;
 
