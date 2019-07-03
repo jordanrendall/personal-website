@@ -5,6 +5,7 @@ import SEO from '../components/seo';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import TypeAnimation from '../components/TypeAnimation';
 
 const StyledDiv = styled.div`
   padding: 10px;
@@ -34,7 +35,31 @@ const IndexPage = ({ data }) => (
     <SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
     <StyledDiv>
       <ProfilePic />
-      <Title>Welcome!</Title>
+      <Title>
+        {' '}
+        <span>
+          <TypeAnimation
+            textArray={['Welcome!']}
+            repeat={false}
+            backspace={false}
+          />
+          <p>
+            Jordan is currently:
+            <TypeAnimation
+              textArray={[
+                'Training...',
+                'Eating...',
+                'Sleeping...',
+                'Coding...',
+              ]}
+              startDelay={2000}
+              repeat={true}
+              backspace={true}
+            />
+          </p>
+        </span>
+      </Title>
+      {/* 
       <p>Click the links above to see more.</p>
       <a
         aria-label='github link'
@@ -43,7 +68,7 @@ const IndexPage = ({ data }) => (
         rel='noopener noreferrer'
       >
         <StyledImg fixed={data.file.childImageSharp.fixed} />
-      </a>
+      </a> */}
     </StyledDiv>
   </Layout>
 );
