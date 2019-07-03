@@ -12,7 +12,7 @@ const Header = ({ siteTitle, scrollPercentage }) => (
       <title>{siteTitle}</title>
       <link rel='canonical' href='https://blog.jordanrendall.com' />
     </Helmet>
-    <Nav siteTitle={siteTitle} />
+    <Nav siteTitle={siteTitle} scrollPercentage={scrollPercentage} />
   </StyledHeader>
 );
 

@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledProgressBar = styled.div`
+  display: grid;
   height: 10px;
   background: ${props => props.theme.colours.Accent};
   width: ${props => props.scrollPercentage}%;
-  position: fixed;
-  top: 10%;
+  grid-column: 1/-1;
 `;
 const ProgressBar = ({ scrollPercentage }) => {
   return (

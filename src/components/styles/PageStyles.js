@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const PageStyles = styled.div`
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
   background: ${props => props.theme.colours.Background};
   min-height: 100vh;
   color: ${props => props.theme.colours.TextDark};

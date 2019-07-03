@@ -28,7 +28,7 @@ const StyledBlogPost = styled.div`
 const StyledLink = styled.span`
   display: flex;
   flex-direction: column;
-  width: 80vw;
+  width: 100%;
   padding-bottom: 15px;
 
   .back-btn {

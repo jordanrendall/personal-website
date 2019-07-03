@@ -5,19 +5,18 @@ const StyledNavTitle = styled.div`
   justify-content: flex-start;
   padding-left: 10px;
   align-items: center;
-  /* margin: 0 auto; */
-  /* max-width: 960px; */
-  /* padding: 2rem; */
-  /* transform: skew(0, 5deg); */
+
   a {
-    color: ${props => props.theme.colours.Dominant};
+    font-weight: 500;
+
+    color: ${props => props.theme.colours.TextLight};
     &:hover,
     :active,
     :focus {
-      color: ${props => props.theme.colours.Accent};
+      color: ${props => props.theme.colours.TextDark};
     }
     &:visited {
-      color: ${props => props.theme.colours.Dominant};
+      color: ${props => props.theme.colours.TextLight};
     }
   }
 `;
@@ -25,47 +24,35 @@ const StyledNavTitle = styled.div`
 const StyledH1 = styled.h1`
   margin: 0;
   font-size: 1.5rem;
+  letter-spacing: 0.05em;
 `;
 
 const NavStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
-  background: ${props => props.theme.colours.Accent};
-  /* transform: skew(0, -5deg); */
-  /* margin-bottom: 1.45rem; */
+  grid-template-rows: auto 10px;
+  background: ${props => props.theme.colours.Dominant};
   border-bottom: 5px solid ${props => props.theme.colours.Borders};
   border-top: 5px solid ${props => props.theme.colours.Borders};
   padding-right: 10px;
-
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center;
-  align-content: space-between; */
-  /* justify-self: flex-end; */
   width: 100%;
-  /* border-left: 5px solid ${props => props.theme.navColourSecondary}; */
-  /* padding-right: 20px; */
   position: fixed;
   top: 0;
-  z-index:1;
-  /* border-radius: 10px; */
-  /* margin: 20px; */
-  /* transform: skew(0, 5deg); */
-  color: ${props => props.theme.colours.Text};
+  z-index: 1;
+  color: ${props => props.theme.colours.TextLight};
   list-style-type: none;
 
   a {
     &:visited {
-      color: ${props => props.theme.colours.Dominant};
+      color: ${props => props.theme.colours.TextLight};
     }
     text-decoration: none;
     &:hover,
     :focus,
     :active {
-      color: ${props => props.theme.colours.Accent};
+      color: ${props => props.theme.colours.TextLight};
     }
   }
-
 `;
 
 const StyledUl = styled.ul`
@@ -73,11 +60,33 @@ const StyledUl = styled.ul`
   justify-self: flex-end;
   padding-right: 10px;
   li {
+    font-weight: 500;
+    transform: translateY(5px);
+    align-self: center;
     display: flex;
     padding-left: 10px;
     padding-right: 10px;
   }
 `;
 
+const ThemeButton = styled.button`
+  display: flex;
+  padding: 10px 30px 10px 30px;
+  background: ${props => props.theme.colours.Dominant};
+  font-size: 1rem;
+  border-radius: 10px;
+  justify-content: center;
+  justify-self: center;
+  width: fit-content;
+  border: 2px solid ${props => props.theme.colours.Borders};
+  color: ${props => props.theme.colours.TextLight};
+  &:hover,
+  :active,
+  :focus {
+    background: ${props => props.theme.colours.Accent};
+    color: ${props => props.theme.colours.TextDark};
+  }
+`;
+
 export default NavStyles;
-export { StyledH1, StyledNavTitle, StyledUl };
+export { StyledH1, StyledNavTitle, StyledUl, ThemeButton };

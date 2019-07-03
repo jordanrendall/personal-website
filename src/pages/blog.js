@@ -51,26 +51,26 @@ const StyledPost = styled.div`
   }
 `;
 
-const StyledButton = styled.button`
-  display: flex;
-  padding: 10px 30px 10px 30px;
-  margin-top: 10px;
-  background: ${props => props.theme.colours.Dominant};
-  font-size: 1rem;
-  border-radius: 10px;
-  justify-content: center;
-  justify-self: center;
-  width: fit-content;
-  border: 2px solid ${props => props.theme.colours.Borders};
-  color: ${props => props.theme.colours.TextLight};
-  margin-bottom: 10px;
-  &:hover,
-  :active,
-  :focus {
-    background: ${props => props.theme.colours.Accent};
-    color: ${props => props.theme.colours.TextDark};
-  }
-`;
+// const StyledButton = styled.button`
+//   display: flex;
+//   padding: 10px 30px 10px 30px;
+//   margin-top: 10px;
+//   background: ${props => props.theme.colours.Dominant};
+//   font-size: 1rem;
+//   border-radius: 10px;
+//   justify-content: center;
+//   justify-self: center;
+//   width: fit-content;
+//   border: 2px solid ${props => props.theme.colours.Borders};
+//   color: ${props => props.theme.colours.TextLight};
+//   margin-bottom: 10px;
+//   &:hover,
+//   :active,
+//   :focus {
+//     background: ${props => props.theme.colours.Accent};
+//     color: ${props => props.theme.colours.TextDark};
+//   }
+// `;
 
 const blogPostsPage = props => {
   const data = props.data;
@@ -82,10 +82,7 @@ const blogPostsPage = props => {
             title='Blog Posts'
             keywords={[`gatsby`, `application`, `react`]}
           />
-          <StyledButton onClick={context.toggleBlogType}>
-            {context.blogType === 'dev' ? 'Software Development' : 'Personal'} →{' '}
-            {context.blogType === 'dev' ? 'Personal' : 'Software Development'}
-          </StyledButton>
+
           {data.allMdx.edges.map(
             ({ node }) =>
               node.frontmatter.blogType === context.blogType && (

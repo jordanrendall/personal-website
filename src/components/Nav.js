@@ -3,12 +3,14 @@ import NavStyles, {
   StyledH1,
   StyledNavTitle,
   StyledUl,
+  ThemeButton,
 } from './styles/NavStyles';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import ProgressBar from './ProgressBar';
 import PropTypes from 'prop-types';
+import SiteContext from '../context/SiteContext';
 
-const Nav = ({ siteTitle }) => {
+const Nav = ({ siteTitle, scrollPercentage }) => {
   const data = useStaticQuery(
     graphql`
       query getMenuLinks {
@@ -25,30 +27,45 @@ const Nav = ({ siteTitle }) => {
     `
   );
   return (
-    <NavStyles>
-      <StyledNavTitle>
-        <StyledH1>
-          <Link
-            to='/'
-            style={{
-              textDecoration: `none`,
-            }}
-          >
-            {siteTitle}
-          </Link>
-        </StyledH1>
-      </StyledNavTitle>
-      <StyledUl>
-        {data.site.siteMetadata.menuLinks.map(i => {
-          return (
-            <li key={i.name}>
-              <Link to={i.link}>{i.name}</Link>
+    <SiteContext.Consumer>
+      {context => (
+        <NavStyles>
+          <StyledNavTitle>
+            <StyledH1>
+              <Link
+                to='/'
+                style={{
+                  textDecoration: `none`,
+                }}
+              >
+                {siteTitle}
+              </Link>
+            </StyledH1>
+          </StyledNavTitle>
+          <StyledUl>
+            <li>
+              <ThemeButton onClick={context.toggleBlogType}>
+                {context.blogType === 'dev'
+                  ? 'Software Development'
+                  : 'Personal'}{' '}
+                →{' '}
+                {context.blogType === 'dev'
+                  ? 'Personal'
+                  : 'Software Development'}
+              </ThemeButton>
             </li>
-          );
-        })}
-      </StyledUl>
-      <ProgressBar />
-    </NavStyles>
+            {data.site.siteMetadata.menuLinks.map(i => {
+              return (
+                <li key={i.name}>
+                  <Link to={i.link}>{i.name}</Link>
+                </li>
+              );
+            })}
+          </StyledUl>
+          <ProgressBar scrollPercentage={scrollPercentage} />
+        </NavStyles>
+      )}
+    </SiteContext.Consumer>
   );
 };
 Nav.propTypes = {
