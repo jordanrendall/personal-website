@@ -9,7 +9,7 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 import ProgressBar from './ProgressBar';
 import PropTypes from 'prop-types';
 import SiteContext from '../context/SiteContext';
-
+import Slider from './Slider';
 const Nav = ({ siteTitle, scrollPercentage }) => {
   const data = useStaticQuery(
     graphql`
@@ -26,10 +26,12 @@ const Nav = ({ siteTitle, scrollPercentage }) => {
       }
     `
   );
+  const opacity = scrollPercentage > 0 ? 0.4 : 1;
+
   return (
     <SiteContext.Consumer>
       {context => (
-        <NavStyles>
+        <NavStyles id='navbar' style={{ opacity }}>
           <StyledNavTitle>
             <StyledH1>
               <Link
@@ -44,7 +46,8 @@ const Nav = ({ siteTitle, scrollPercentage }) => {
           </StyledNavTitle>
           <StyledUl>
             <li>
-              <ThemeButton onClick={context.toggleBlogType}>
+              <Slider />
+              {/* <ThemeButton onClick={context.toggleBlogType}>
                 {context.blogType === 'dev'
                   ? 'Software Development'
                   : 'Personal'}{' '}
@@ -52,7 +55,7 @@ const Nav = ({ siteTitle, scrollPercentage }) => {
                 {context.blogType === 'dev'
                   ? 'Personal'
                   : 'Software Development'}
-              </ThemeButton>
+              </ThemeButton> */}
             </li>
             {data.site.siteMetadata.menuLinks.map(i => {
               return (

@@ -1,12 +1,19 @@
 import styled from 'styled-components';
 
 const PageStyles = styled.div`
+  *::selection {
+    background: ${props => props.theme.colours.Dominant};
+    color: ${props => props.theme.colours.TextLight};
+  }
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   background: ${props => props.theme.colours.Background};
   min-height: 100vh;
+  /* height: 100%; */
   color: ${props => props.theme.colours.TextDark};
+  flex: 1 0 auto;
 
   main {
     a {

@@ -12,6 +12,7 @@ const StyledPost = styled.div`
   grid-template-columns: 3fr 1fr;
   grid-template-areas:
     'title date'
+    'banner banner'
     'timeToRead .'
     'excerpt excerpt';
   justify-content: space-between;
@@ -48,6 +49,14 @@ const StyledPost = styled.div`
   :focus,
   :active {
     outline: 1px solid ${props => props.theme.colours.Borders};
+  }
+
+  img {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    grid-area: banner;
   }
 `;
 
@@ -88,6 +97,12 @@ const blogPostsPage = props => {
               node.frontmatter.blogType === context.blogType && (
                 <Link key={node.id} to={node.fields.slug}>
                   <StyledPost>
+                    {node.frontmatter.banner && (
+                      <img
+                        src={node.frontmatter.banner}
+                        alt={`${node.frontmatter.title} Banner Image`}
+                      />
+                    )}
                     <h1>{node.frontmatter.title}</h1>
                     <h2>{node.frontmatter.date}</h2>
                     <h3>{node.timeToRead} min</h3>
@@ -115,6 +130,13 @@ export const pageQuery = graphql`
             title
             blogType
             date(formatString: "DD MMMM, YYYY")
+            # banner # {
+            # #   childImageSharp {
+            # #     fluid(maxHeight: 340) {
+            # #       ...GatsbyImageSharpFluid
+            # #     }
+            # #   }
+            # # }
           }
           fields {
             slug

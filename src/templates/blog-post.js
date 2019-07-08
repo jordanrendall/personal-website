@@ -70,13 +70,14 @@ export const query = graphql`
     mdx(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
-        banner {
-          childImageSharp {
-            fluid(maxHeight: 340) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+        # banner #{
+        # #   # publicURL
+        # #   childImageSharp {
+        # #     fluid(maxHeight: 340) {
+        # #       ...GatsbyImageSharpFluid
+        # #     }
+        # #   }
+        # # }
       }
       code {
         body

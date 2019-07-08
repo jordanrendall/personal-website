@@ -1,15 +1,24 @@
 import React from 'react';
-import styled from 'styled-components';
+import Img from 'gatsby-image';
+import { useStaticQuery } from 'gatsby';
 
-const StyledSvg = styled.svg`
-  height: 0px;
-  width: 0px;
-  background: red;
-  clip-path: circle(25%);
-`;
-
-const ProfilePic = () => {
-  return <StyledSvg />;
+const ProfilePic = props => {
+  const imageQuery = useStaticQuery(graphql`
+    query {
+      fileName: file(relativePath: { eq: "profile-pic.jpg" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 720, maxHeight: 960) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+  return (
+    <Img alt={props.alt} fluid={imageQuery.fileName.childImageSharp.fluid} />
+  );
 };
 
 export default ProfilePic;

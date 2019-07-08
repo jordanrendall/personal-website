@@ -3,6 +3,7 @@ title: 'Coming Soon'
 date: '2019-05-26'
 blogType: 'dev'
 excerpt: 'This blog will soon be booming!'
+banner: ''
 ---
 
 This blog will soon be booming!

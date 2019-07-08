@@ -83,7 +83,8 @@ const purpleTheme = {
 const ContentWrapper = styled.main`
   display: grid;
   justify-content: space-around;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
+  margin-top: 80px;
   /* grid-template-rows: auto 1fr auto; */
 `;
 
@@ -91,6 +92,7 @@ class Layout extends Component {
   state = {
     scrollPercentage: 0,
   };
+
   componentDidMount = () => {
     window.addEventListener('scroll', this.updateScrollPercentage);
   };
