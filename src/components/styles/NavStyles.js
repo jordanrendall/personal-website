@@ -85,25 +85,25 @@ const StyledUl = styled.ul`
   }
 `;
 
-const ThemeButton = styled.button`
-  display: flex;
-  padding: 2px;
-  background: ${props => props.theme.colours.Dominant};
-  font-size: 1rem;
-  margin: 0px;
-  border-radius: 10px;
-  justify-content: center;
-  justify-self: center;
-  width: fit-content;
-  border: 2px solid ${props => props.theme.colours.Borders};
-  color: ${props => props.theme.colours.TextLight};
-  &:hover,
-  :active,
-  :focus {
-    background: ${props => props.theme.colours.Accent};
-    color: ${props => props.theme.colours.TextDark};
-  }
-`;
+// const ThemeButton = styled.button`
+//   display: flex;
+//   padding: 2px;
+//   background: ${props => props.theme.colours.Dominant};
+//   font-size: 1rem;
+//   margin: 0px;
+//   border-radius: 10px;
+//   justify-content: center;
+//   justify-self: center;
+//   width: fit-content;
+//   border: 2px solid ${props => props.theme.colours.Borders};
+//   color: ${props => props.theme.colours.TextLight};
+//   &:hover,
+//   :active,
+//   :focus {
+//     background: ${props => props.theme.colours.Accent};
+//     color: ${props => props.theme.colours.TextDark};
+//   }
+// `;
 
 export default NavStyles;
-export { StyledH1, StyledNavTitle, StyledUl, ThemeButton };
+export { StyledH1, StyledNavTitle, StyledUl };

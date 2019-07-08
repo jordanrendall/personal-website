@@ -60,6 +60,30 @@ const StyledPost = styled.div`
   }
 `;
 
+const ThemeButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ${props => props.theme.colours.Dominant};
+  border: 2px solid ${props => props.theme.colours.Borders};
+  border-radius: 5px;
+  padding: 0.75vw 2vw 0.75vw 2vw;
+  margin: 10px;
+  font-size: 3vw;
+  /* font-size: 1.5rem; */
+  color: ${props => props.theme.colours.TextLight};
+
+  &:hover,
+  :focus,
+  :active {
+    background: ${props => props.theme.colours.Borders};
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 750px) {
+    font-size: 4vw;
+  }
+`;
 // const StyledButton = styled.button`
 //   display: flex;
 //   padding: 10px 30px 10px 30px;
@@ -91,7 +115,10 @@ const blogPostsPage = props => {
             title='Blog Posts'
             keywords={[`gatsby`, `application`, `react`]}
           />
-
+          <ThemeButton onClick={context.toggleBlogType}>
+            {context.blogType === 'dev' ? 'Software Development' : 'Personal'} →{' '}
+            {context.blogType === 'dev' ? 'Personal' : 'Software Development'}
+          </ThemeButton>
           {data.allMdx.edges.map(
             ({ node }) =>
               node.frontmatter.blogType === context.blogType && (

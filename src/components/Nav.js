@@ -45,7 +45,7 @@ const Nav = ({ siteTitle, scrollPercentage }) => {
             </StyledH1>
           </StyledNavTitle>
           <StyledUl>
-            <li>
+            {/* <li>
               <Slider />
               {/* <ThemeButton onClick={context.toggleBlogType}>
                 {context.blogType === 'dev'
@@ -55,8 +55,7 @@ const Nav = ({ siteTitle, scrollPercentage }) => {
                 {context.blogType === 'dev'
                   ? 'Personal'
                   : 'Software Development'}
-              </ThemeButton> */}
-            </li>
+              </ThemeButton> </li>*/}
             {data.site.siteMetadata.menuLinks.map(i => {
               return (
                 <li key={i.name}>
