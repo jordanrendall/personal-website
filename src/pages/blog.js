@@ -1,10 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link, graphql } from 'gatsby';
 import SiteContext from '../context/SiteContext';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
-import styled from 'styled-components';
+import styled, { ThemeConsumer } from 'styled-components';
 
+const Filters = styled.div`
+  width: 90vw;
+  padding: 10px;
+  p {
+    height: auto;
+    font-size: 1rem;
+
+    text-align: center;
+    :hover {
+      text-decoration: underline;
+
+      text-decoration-color: ${props => props.theme.colours.TextDark};
+    }
+  }
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+`;
+const StyledCategories = styled.div`
+  display: flex;
+  justify-content: space-around;
+  .category {
+    height: auto;
+    width: auto;
+    font-size: 1rem;
+    padding: 5px 20px 5px 20px;
+    border-radius: 10px;
+    border: 2px solid ${props => props.theme.colours.Borders};
+
+    background: ${props =>
+      props.selected === true
+        ? props.theme.colours.Borders
+        : props.theme.colours.Dominant};
+    color: ${props => props.theme.colours.TextLight};
+    :active,
+    :hover {
+      background: ${props => props.theme.colours.Borders};
+    }
+  }
+`;
 const StyledPost = styled.div`
   display: grid;
   width: 90vw;
@@ -74,8 +113,7 @@ const ThemeButton = styled.button`
   color: ${props => props.theme.colours.TextLight};
 
   &:hover,
-  :focus,
-  :active {
+  :focus {
     background: ${props => props.theme.colours.Borders};
     transform: translateY(-1px);
   }
@@ -105,45 +143,145 @@ const ThemeButton = styled.button`
 //   }
 // `;
 
-const blogPostsPage = props => {
-  const data = props.data;
-  return (
-    <SiteContext.Consumer>
-      {context => (
-        <Layout>
-          <SEO
-            title='Blog Posts'
-            keywords={[`gatsby`, `application`, `react`]}
-          />
-          <ThemeButton onClick={context.toggleBlogType}>
-            {context.blogType === 'dev' ? 'Software Development' : 'Personal'} →{' '}
-            {context.blogType === 'dev' ? 'Personal' : 'Software Development'}
-          </ThemeButton>
-          {data.allMdx.edges.map(
-            ({ node }) =>
-              node.frontmatter.blogType === context.blogType && (
-                <Link key={node.id} to={node.fields.slug}>
-                  <StyledPost>
-                    {node.frontmatter.banner && (
-                      <img
-                        src={node.frontmatter.banner}
-                        alt={`${node.frontmatter.title} Banner Image`}
-                      />
-                    )}
-                    <h1>{node.frontmatter.title}</h1>
-                    <h2>{node.frontmatter.date}</h2>
-                    <h3>{node.timeToRead} min</h3>
-                    <p>{node.excerpt}</p>
-                  </StyledPost>
-                </Link>
-              )
-          )}
-        </Layout>
-      )}
-    </SiteContext.Consumer>
-  );
-};
+class blogPostsPage extends Component {
+  state = {
+    categories: {},
+    loaded: false,
+  };
+  // updateCategoriesDOM = () => {};
+  componentWillMount = async () => {
+    const data = this.props.data;
+    let categoryList = {};
+    const map = await data.allMdx.edges.map(({ node }) => {
+      if (!Object.keys(categoryList).includes(node.frontmatter.category)) {
+        this.setState(prevState => ({
+          categories: {
+            ...prevState.categories,
+            [node.frontmatter.category]: true,
+          },
+        }));
+      }
+    });
 
+    // this.updateCategoriesDOM();
+  };
+
+  updateFilters = event => {
+    event.preventDefault();
+    let updatedState = {};
+
+    if (!this.state.loaded) {
+      Object.keys(this.state.categories).map(category => {
+        if (category === event.target.id) {
+          updatedState[category] = true;
+          event.target.setAttribute('selected', true);
+        } else {
+          updatedState[category] = false;
+          event.target.setAttribute('selected', false);
+        }
+      });
+    } else {
+      updatedState[event.target.id] = !this.state.categories[event.target.id];
+      event.target.setAttribute(
+        'selected',
+        !this.state.categories[event.target.id]
+      );
+    }
+    this.setState(prevState => ({
+      categories: { ...prevState.categories, ...updatedState },
+      loaded: true,
+    }));
+    Object.keys(this.state.categories).map(category => {
+      const queriedPosts = document.getElementsByClassName(category);
+      [].forEach.call(queriedPosts, post => {
+        if (this.state.categories[category]) {
+          post.removeAttribute('display');
+        } else {
+          post.setAttribute('display', 'none');
+        }
+      });
+    });
+  };
+  render() {
+    const data = this.props.data;
+
+    return (
+      <SiteContext.Consumer>
+        {context => (
+          <Layout>
+            <SEO
+              title='Blog Posts'
+              keywords={[`gatsby`, `application`, `react`]}
+            />
+            <ThemeButton onClick={context.toggleBlogType}>
+              {context.blogType === 'dev' ? 'Software Development' : 'Personal'}{' '}
+              →{' '}
+              {context.blogType === 'dev' ? 'Personal' : 'Software Development'}
+            </ThemeButton>
+
+            <Filters>
+              <p>Filters:</p>
+              <ThemeConsumer>
+                {theme => (
+                  <StyledCategories id='categories'>
+                    {Object.keys(this.state.categories).map((category, i) => {
+                      if (category) {
+                        if (
+                          (context.blogType === 'dev' &&
+                            category === 'software') ||
+                          (context.blogType !== 'dev' &&
+                            category !== 'software')
+                        ) {
+                          return (
+                            <button
+                              key={`${i}-category-button`}
+                              className='category'
+                              id={category}
+                              onClick={this.updateFilters}
+                              style={{
+                                backgroundColor: this.state.categories[category]
+                                  ? theme.colours.Borders
+                                  : theme.colours.Dominant,
+                              }}
+                            >
+                              {category.toUpperCase()}
+                            </button>
+                          );
+                        }
+                      }
+                    })}
+                  </StyledCategories>
+                )}
+              </ThemeConsumer>
+            </Filters>
+            {data.allMdx.edges.map(({ node }) => {
+              if (node.frontmatter.blogType === context.blogType) {
+                if (this.state.categories[node.frontmatter.category]) {
+                  return (
+                    <Link key={node.id} to={node.fields.slug}>
+                      <StyledPost className={node.frontmatter.category}>
+                        {node.frontmatter.banner && (
+                          <img
+                            src={node.frontmatter.banner}
+                            alt={`${node.frontmatter.title} Banner Image`}
+                          />
+                        )}
+                        <h1>{node.frontmatter.title}</h1>
+                        <h2>{node.frontmatter.date}</h2>
+                        <h3>{node.timeToRead} min</h3>
+                        <p>{node.excerpt}</p>
+                      </StyledPost>
+                    </Link>
+                  );
+                }
+              }
+            })}
+          </Layout>
+        )}
+      </SiteContext.Consumer>
+    );
+  }
+}
 export default blogPostsPage;
 
 export const pageQuery = graphql`
@@ -157,6 +295,7 @@ export const pageQuery = graphql`
             title
             blogType
             date(formatString: "DD MMMM, YYYY")
+            category
             # banner # {
             # #   childImageSharp {
             # #     fluid(maxHeight: 340) {

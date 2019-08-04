@@ -3,6 +3,7 @@ title: 'What to Write?'
 date: '2018-10-11'
 blogType: 'personal'
 banner: './images/banner.png'
+category: 'life'
 
 excerpt: 'How do I determine what to write about? Should it just come to me naturally or should I seek it out? Can I continue the rhyme that I...'
 ---

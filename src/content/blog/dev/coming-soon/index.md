@@ -4,6 +4,7 @@ date: '2019-05-26'
 blogType: 'dev'
 excerpt: 'This blog will soon be booming!'
 banner: ''
+category: 'software'
 ---
 
 This blog will soon be booming!

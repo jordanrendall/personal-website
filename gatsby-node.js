@@ -29,6 +29,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `banner`,
       value: node.frontmatter.banner,
     });
+    createNodeField({
+      node,
+      name: `category`,
+      value: node.frontmatter.category,
+    });
   }
 };
 
