@@ -112,7 +112,7 @@ class Layout extends Component {
     return (
       <SiteContext.Consumer>
         {context => (
-          <div className={context.blogType ? 'dev' : 'personal'}>
+          <div className={context.blogType === 'dev' ? 'dev' : 'personal'}>
             <ThemeProvider theme={purpleTheme}>
               <StaticQuery
                 query={graphql`

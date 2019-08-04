@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 const defaultState = {
-  blogType: 'dev',
+  blogType: 'personal',
   toggleBlogType: () => {},
 };
 
@@ -20,8 +20,9 @@ class SiteContextProvider extends Component {
   };
   componentDidMount() {
     //get blogType from local localStorage
-    const lsBlogType = JSON.parse(localStorage.getItem('blogType'));
-    this.setState({ blogType: lsBlogType });
+    // const lsBlogType = JSON.parse(localStorage.getItem('blogType'));
+    // this.setState({ blogType: lsBlogType });
+    this.setState({ blogType: 'personal' });
   }
 
   render() {

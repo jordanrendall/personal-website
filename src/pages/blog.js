@@ -4,6 +4,11 @@ import SiteContext from '../context/SiteContext';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import styled, { ThemeConsumer } from 'styled-components';
+import DownArrow from '../components/DownArrow';
+
+const StyledPageTitle = styled.h1`
+  text-align: center;
+`;
 
 const Filters = styled.div`
   width: 90vw;
@@ -21,15 +26,25 @@ const Filters = styled.div`
   }
   display: grid;
   grid-template-columns: 1fr 3fr;
+  @media (max-width: 540px) {
+    grid-template-columns: 1fr;
+  }
 `;
 const StyledCategories = styled.div`
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  @media (max-width: 540px) {
+    flex-direction: column;
+  }
   .category {
+    line-height: 1rem;
     height: auto;
     width: auto;
+    margin: 5px;
+
     font-size: 1rem;
-    padding: 5px 20px 5px 20px;
+    padding: 10px 20px 10px 20px;
     border-radius: 10px;
     border: 2px solid ${props => props.theme.colours.Borders};
     outline: none;
@@ -214,11 +229,12 @@ class blogPostsPage extends Component {
               title='Blog Posts'
               keywords={[`gatsby`, `application`, `react`]}
             />
-            <ThemeButton onClick={context.toggleBlogType}>
+            {/* <ThemeButton onClick={context.toggleBlogType}>
               {context.blogType === 'dev' ? 'Software Development' : 'Personal'}{' '}
               →{' '}
               {context.blogType === 'dev' ? 'Personal' : 'Software Development'}
-            </ThemeButton>
+            </ThemeButton> */}
+            <StyledPageTitle>Blog</StyledPageTitle>
 
             <Filters>
               <p>Filters:</p>
@@ -255,6 +271,7 @@ class blogPostsPage extends Component {
                 )}
               </ThemeConsumer>
             </Filters>
+            <DownArrow />
             {data.allMdx.edges.map(({ node }) => {
               if (node.frontmatter.blogType === context.blogType) {
                 if (this.state.categories[node.frontmatter.category]) {
