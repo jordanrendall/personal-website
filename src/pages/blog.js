@@ -32,6 +32,7 @@ const StyledCategories = styled.div`
     padding: 5px 20px 5px 20px;
     border-radius: 10px;
     border: 2px solid ${props => props.theme.colours.Borders};
+    outline: none;
 
     background: ${props =>
       props.selected === true
