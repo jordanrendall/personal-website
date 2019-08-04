@@ -11,7 +11,13 @@ const StyledBlogPost = styled.div`
   justify-content: space-around;
   width: 90vw;
   padding-top: 15px;
-
+  p > a {
+    color: ${props=>props.theme.colours.TextDark};
+    text-decoration: underline;
+    :hover {
+      color: ${props=>props.theme.colours.Dominant};
+    }
+  }
   hr {
     height: 2px;
     width: 100%;
@@ -19,9 +25,13 @@ const StyledBlogPost = styled.div`
     background-image: linear-gradient(
       to right,
       ${props => props.theme.colours.Background} 0%,
-      ${props => props.theme.colours.Text} 50%,
+      ${props => props.theme.colours.TextDark} 50%,
       ${props => props.theme.colours.Background} 100%
     );
+  }
+  blockquote {
+    border-left: 3px solid ${props=>props.theme.colours.Dominant};
+    padding-left: 20px;
   }
 `;
 
