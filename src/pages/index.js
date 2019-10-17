@@ -12,7 +12,8 @@ const StyledDiv = styled.div`
   grid-template-areas: 'image other';
   img {
     grid-area: image;
-    border: 3px solid ${props => props.theme.colours.Borders};
+    box-shadow: 1px 1px 5px ${props => props.theme.colours.Borders};
+    /* border: 3px solid ${props => props.theme.colours.Borders}; */
   }
 
   @media (max-width: 860px) {

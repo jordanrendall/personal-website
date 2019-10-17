@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import SiteContext from '../context/SiteContext';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import styled, { ThemeConsumer } from 'styled-components';
 import DownArrow from '../components/DownArrow';
+// import BlogImageSlider from '../components/BlogImageSlider';
 
 const StyledPageTitle = styled.h1`
   text-align: center;
@@ -235,7 +237,7 @@ class blogPostsPage extends Component {
               {context.blogType === 'dev' ? 'Personal' : 'Software Development'}
             </ThemeButton> */}
             <StyledPageTitle>Blog</StyledPageTitle>
-
+            {/* <BlogImageSlider posts={data.allMdx.edges} /> */}
             <Filters>
               <p>Filters:</p>
               <ThemeConsumer>
@@ -279,8 +281,10 @@ class blogPostsPage extends Component {
                     <Link key={node.id} to={node.fields.slug}>
                       <StyledPost className={node.frontmatter.category}>
                         {node.frontmatter.banner && (
-                          <img
-                            src={node.frontmatter.banner}
+                          <Img
+                            fluid={
+                              node.frontmatter.banner.childImageSharp.fluid
+                            }
                             alt={`${node.frontmatter.title} Banner Image`}
                           />
                         )}
@@ -314,13 +318,14 @@ export const pageQuery = graphql`
             blogType
             date(formatString: "DD MMMM, YYYY")
             category
-            # banner # {
-            # #   childImageSharp {
-            # #     fluid(maxHeight: 340) {
-            # #       ...GatsbyImageSharpFluid
-            # #     }
-            # #   }
-            # # }
+            banner {
+              absolutePath
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           fields {
             slug
