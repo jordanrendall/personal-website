@@ -59,7 +59,6 @@ const purpleTheme = {
   colorcomplement2: '#FFA847',
   colorcomplement3: '#E57900',
   colorcomplement4: '#B25E00',
-
   contentFont: "'Roboto', sans-serif",
   headingFont: "'Source Sans Pro', sans-serif",
   init: function() {

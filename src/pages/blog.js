@@ -7,12 +7,22 @@ import SEO from '../components/seo';
 import styled, { ThemeConsumer } from 'styled-components';
 import DownArrow from '../components/DownArrow';
 // import BlogImageSlider from '../components/BlogImageSlider';
-
+import FilterSidebar from '../components/FilterSidebar';
 const StyledPageTitle = styled.h1`
   text-align: center;
 `;
 
-const Filters = styled.div`
+const BlogContainer = styled.section`
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 4fr;
+`;
+const Posts = styled.section`
+  display: grid;
+  grid-template-columns: 1fr;
+`;
+
+const Filters = styled.section`
   width: 90vw;
   padding: 10px;
   p {
@@ -65,6 +75,7 @@ const StyledCategories = styled.div`
 const StyledPost = styled.div`
   display: grid;
   width: 90vw;
+  border-radius: 5px;
 
   grid-template-columns: 3fr 1fr;
   grid-template-areas:
@@ -105,15 +116,21 @@ const StyledPost = styled.div`
   &:hover,
   :focus,
   :active {
-    outline: 1px solid ${props => props.theme.colours.Borders};
+    /* outline: 1px solid ${props => props.theme.colours.Borders}; */
+    box-shadow: 0px 0px 10px ${props => props.theme.colours.Dominant};
+
   }
 
+  .banner {
+    grid-area: banner;
+  }
   img {
     display: grid;
+    /* grid-column: 1/3; */
     justify-content: center;
     align-items: center;
     width: 100%;
-    grid-area: banner;
+    /* grid-area: banner; */
   }
 `;
 
@@ -238,7 +255,9 @@ class blogPostsPage extends Component {
             </ThemeButton> */}
             <StyledPageTitle>Blog</StyledPageTitle>
             {/* <BlogImageSlider posts={data.allMdx.edges} /> */}
-            <Filters>
+            <BlogContainer>
+              {/* <FilterSidebar filters={Object.keys(this.state.categories)} /> */}
+              {/* <Filters>
               <p>Filters:</p>
               <ThemeConsumer>
                 {theme => (
@@ -272,32 +291,36 @@ class blogPostsPage extends Component {
                   </StyledCategories>
                 )}
               </ThemeConsumer>
-            </Filters>
-            <DownArrow />
-            {data.allMdx.edges.map(({ node }) => {
-              if (node.frontmatter.blogType === context.blogType) {
-                if (this.state.categories[node.frontmatter.category]) {
-                  return (
-                    <Link key={node.id} to={node.fields.slug}>
-                      <StyledPost className={node.frontmatter.category}>
-                        {node.frontmatter.banner && (
-                          <Img
-                            fluid={
-                              node.frontmatter.banner.childImageSharp.fluid
-                            }
-                            alt={`${node.frontmatter.title} Banner Image`}
-                          />
-                        )}
-                        <h1>{node.frontmatter.title}</h1>
-                        <h2>{node.frontmatter.date}</h2>
-                        <h3>{node.timeToRead} min</h3>
-                        <p>{node.excerpt}</p>
-                      </StyledPost>
-                    </Link>
-                  );
-                }
-              }
-            })}
+            </Filters> */}
+              {/* <DownArrow /> */}
+              <Posts>
+                {data.allMdx.edges.map(({ node }) => {
+                  if (node.frontmatter.blogType === context.blogType) {
+                    if (this.state.categories[node.frontmatter.category]) {
+                      return (
+                        <Link key={node.id} to={node.fields.slug}>
+                          <StyledPost className={node.frontmatter.category}>
+                            {node.frontmatter.banner && (
+                              <Img
+                                className='banner'
+                                fluid={
+                                  node.frontmatter.banner.childImageSharp.fluid
+                                }
+                                alt={`${node.frontmatter.title} Banner Image`}
+                              />
+                            )}
+                            <h1>{node.frontmatter.title}</h1>
+                            <h2>{node.frontmatter.date}</h2>
+                            <h3>{node.timeToRead} min</h3>
+                            <p>{node.excerpt}</p>
+                          </StyledPost>
+                        </Link>
+                      );
+                    }
+                  }
+                })}
+              </Posts>
+            </BlogContainer>
           </Layout>
         )}
       </SiteContext.Consumer>
