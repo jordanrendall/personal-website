@@ -20,16 +20,33 @@ const StyledSidebar = styled.section`
   position: relative;
 `;
 
-const FilterSidebar = ({ filters }) => {
+const StyledFilter = styled.article`
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+`;
+
+const FilterSidebar = ({ categories, set }) => {
+  const updateFilters = e => {
+    const name = e.target.name;
+    const checked = e.target.checked;
+    set(prevState => ({
+      ...prevState,
+      [name]: checked,
+    }));
+  };
   return (
     <StyledSidebar>
       <h2>Filter by:</h2>
-      {filters.map((filter, i) => {
+      {categories.map((category, i) => {
         return (
-          <article>
-            <label>{filter}</label>
-            <input type='checkbox' />
-          </article>
+          <StyledFilter key={`filter-${i}`}>
+            <label>{category}</label>
+            <input
+              type='checkbox'
+              name={category}
+              onClick={e => updateFilters(e)}
+            />
+          </StyledFilter>
         );
       })}
     </StyledSidebar>

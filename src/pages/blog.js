@@ -1,25 +1,13 @@
 import React, { Component } from 'react';
-import { Link, graphql } from 'gatsby';
-import Img from 'gatsby-image';
 import SiteContext from '../context/SiteContext';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import styled, { ThemeConsumer } from 'styled-components';
-import DownArrow from '../components/DownArrow';
-// import BlogImageSlider from '../components/BlogImageSlider';
-import FilterSidebar from '../components/FilterSidebar';
+import BlogContainer from '../components/BlogContainer';
+import BlogPosts from '../components/BlogPosts';
+
 const StyledPageTitle = styled.h1`
   text-align: center;
-`;
-
-const BlogContainer = styled.section`
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 4fr;
-`;
-const Posts = styled.section`
-  display: grid;
-  grid-template-columns: 1fr;
 `;
 
 const Filters = styled.section`
@@ -72,68 +60,6 @@ const StyledCategories = styled.div`
     }
   }
 `;
-const StyledPost = styled.div`
-  display: grid;
-  width: 90vw;
-  border-radius: 5px;
-
-  grid-template-columns: 3fr 1fr;
-  grid-template-areas:
-    'title date'
-    'banner banner'
-    'timeToRead .'
-    'excerpt excerpt';
-  justify-content: space-between;
-  padding: 10px;
-  h1 {
-    display: grid;
-    justify-content: flex-start;
-    align-items: center;
-    height: auto;
-
-    grid-area: title;
-    /* font-size: 2rem; */
-    font-size: calc(10px + 2.5vw);
-    font-weight: bold;
-  }
-  h2 {
-    display: flex;
-    grid-area: date;
-    justify-content: flex-end;
-    font-size: calc(10px + 1.5vw);
-    font-weight: bold;
-  }
-  h3 {
-    grid-area: timeToRead;
-    font-size: calc(10px + 1.5vw);
-    font-weight: bold;
-  }
-
-  p {
-    grid-area: excerpt;
-  }
-
-  &:hover,
-  :focus,
-  :active {
-    /* outline: 1px solid ${props => props.theme.colours.Borders}; */
-    box-shadow: 0px 0px 10px ${props => props.theme.colours.Dominant};
-
-  }
-
-  .banner {
-    grid-area: banner;
-  }
-  img {
-    display: grid;
-    /* grid-column: 1/3; */
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    /* grid-area: banner; */
-  }
-`;
-
 const ThemeButton = styled.button`
   display: flex;
   justify-content: center;
@@ -178,185 +104,13 @@ const ThemeButton = styled.button`
 //   }
 // `;
 
-class blogPostsPage extends Component {
-  state = {
-    categories: {},
-    loaded: false,
-  };
-  // updateCategoriesDOM = () => {};
-  componentWillMount = async () => {
-    const data = this.props.data;
-    let categoryList = {};
-    const map = await data.allMdx.edges.map(({ node }) => {
-      if (!Object.keys(categoryList).includes(node.frontmatter.category)) {
-        this.setState(prevState => ({
-          categories: {
-            ...prevState.categories,
-            [node.frontmatter.category]: true,
-          },
-        }));
-      }
-    });
-
-    // this.updateCategoriesDOM();
-  };
-
-  updateFilters = event => {
-    event.preventDefault();
-    let updatedState = {};
-
-    if (!this.state.loaded) {
-      Object.keys(this.state.categories).map(category => {
-        if (category === event.target.id) {
-          updatedState[category] = true;
-          event.target.setAttribute('selected', true);
-        } else {
-          updatedState[category] = false;
-          event.target.setAttribute('selected', false);
-        }
-      });
-    } else {
-      updatedState[event.target.id] = !this.state.categories[event.target.id];
-      event.target.setAttribute(
-        'selected',
-        !this.state.categories[event.target.id]
-      );
-    }
-    this.setState(prevState => ({
-      categories: { ...prevState.categories, ...updatedState },
-      loaded: true,
-    }));
-    Object.keys(this.state.categories).map(category => {
-      const queriedPosts = document.getElementsByClassName(category);
-      [].forEach.call(queriedPosts, post => {
-        if (this.state.categories[category]) {
-          post.removeAttribute('display');
-        } else {
-          post.setAttribute('display', 'none');
-        }
-      });
-    });
-  };
-  render() {
-    const data = this.props.data;
-
-    return (
-      <SiteContext.Consumer>
-        {context => (
-          <Layout>
-            <SEO
-              title='Blog Posts'
-              keywords={[`gatsby`, `application`, `react`]}
-            />
-            {/* <ThemeButton onClick={context.toggleBlogType}>
-              {context.blogType === 'dev' ? 'Software Development' : 'Personal'}{' '}
-              →{' '}
-              {context.blogType === 'dev' ? 'Personal' : 'Software Development'}
-            </ThemeButton> */}
-            <StyledPageTitle>Blog</StyledPageTitle>
-            {/* <BlogImageSlider posts={data.allMdx.edges} /> */}
-            <BlogContainer>
-              {/* <FilterSidebar filters={Object.keys(this.state.categories)} /> */}
-              {/* <Filters>
-              <p>Filters:</p>
-              <ThemeConsumer>
-                {theme => (
-                  <StyledCategories id='categories'>
-                    {Object.keys(this.state.categories).map((category, i) => {
-                      if (category) {
-                        if (
-                          (context.blogType === 'dev' &&
-                            category === 'software') ||
-                          (context.blogType !== 'dev' &&
-                            category !== 'software')
-                        ) {
-                          return (
-                            <button
-                              key={`${i}-category-button`}
-                              className='category'
-                              id={category}
-                              onClick={this.updateFilters}
-                              style={{
-                                backgroundColor: this.state.categories[category]
-                                  ? theme.colours.Borders
-                                  : theme.colours.Dominant,
-                              }}
-                            >
-                              {category.toUpperCase()}
-                            </button>
-                          );
-                        }
-                      }
-                    })}
-                  </StyledCategories>
-                )}
-              </ThemeConsumer>
-            </Filters> */}
-              {/* <DownArrow /> */}
-              <Posts>
-                {data.allMdx.edges.map(({ node }) => {
-                  if (node.frontmatter.blogType === context.blogType) {
-                    if (this.state.categories[node.frontmatter.category]) {
-                      return (
-                        <Link key={node.id} to={node.fields.slug}>
-                          <StyledPost className={node.frontmatter.category}>
-                            {node.frontmatter.banner && (
-                              <Img
-                                className='banner'
-                                fluid={
-                                  node.frontmatter.banner.childImageSharp.fluid
-                                }
-                                alt={`${node.frontmatter.title} Banner Image`}
-                              />
-                            )}
-                            <h1>{node.frontmatter.title}</h1>
-                            <h2>{node.frontmatter.date}</h2>
-                            <h3>{node.timeToRead} min</h3>
-                            <p>{node.excerpt}</p>
-                          </StyledPost>
-                        </Link>
-                      );
-                    }
-                  }
-                })}
-              </Posts>
-            </BlogContainer>
-          </Layout>
-        )}
-      </SiteContext.Consumer>
-    );
-  }
-}
+const blogPostsPage = () => {
+  return (
+    <Layout>
+      <SEO title='Blog Posts' keywords={[`gatsby`, `application`, `react`]} />
+      <StyledPageTitle>Blog</StyledPageTitle>
+      <BlogContainer />
+    </Layout>
+  );
+};
 export default blogPostsPage;
-
-export const pageQuery = graphql`
-  query {
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
-      totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            blogType
-            date(formatString: "DD MMMM, YYYY")
-            category
-            banner {
-              absolutePath
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          fields {
-            slug
-          }
-          excerpt
-          timeToRead
-        }
-      }
-    }
-  }
-`;
