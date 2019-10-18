@@ -107,7 +107,7 @@ const BlogPosts = ({ filters }) => {
   );
   let posts = data.allMdx.edges;
 
-  if (Object.values(filters).includes(true)) {
+  if (filters && Object.values(filters).includes(true)) {
     posts = posts.filter(({ node }) => {
       return filters[node.frontmatter.category];
     });
