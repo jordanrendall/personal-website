@@ -8,7 +8,7 @@ const PageStyles = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   background: ${props => props.theme.colours.Background};
   min-height: 100vh;
   /* height: 100%; */

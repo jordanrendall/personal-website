@@ -20,8 +20,9 @@ const StyledButton = styled.div`
     &:hover,
     :focus,
     :active {
-      background: ${props => props.theme.colours.Borders};
+      /* background: ${props => props.theme.colours.Borders}; */
       transform: translateY(-1px);
+      box-shadow: 0px 0px 20px ${props => props.theme.colours.Borders}
     }
 
     @media (max-width: 750px) {

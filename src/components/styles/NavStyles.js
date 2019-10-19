@@ -24,12 +24,26 @@ const StyledNavTitle = styled.div`
 
 const StyledH1 = styled.h1`
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   letter-spacing: 0.05em;
-  transform: translateY(5px);
-  :hover {
-    transform: translateY(6px);
-    border-bottom: 2px solid;
+  /* transform: translateY(5px); */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  :after {
+    content: '';
+    width: 0px;
+    height: 2px;
+    display: block;
+    background: ${props => props.theme.colours.TextLight};
+    transition: 300ms;
+  }
+  :hover:after {
+    width: 100%;
+  }
+  @media (max-width: 470px) {
+    font-size: 1.5rem;
   }
 `;
 
@@ -75,13 +89,30 @@ const StyledUl = styled.ul`
     display: flex;
     padding-left: 10px;
     padding-right: 10px;
-    :hover,
+    font-size: 1.75rem;
+    @media (max-width: 470px) {
+      font-size: 1.4rem;
+    }
+    a:after {
+      content: '';
+      width: 0px;
+      height: 2px;
+      display: block;
+      background: ${props => props.theme.colours.TextLight};
+      transition: 300ms;
+    }
+    a:hover:after {
+      width: 100%;
+    }
+
+    /* :hover,
     :active,
     :focus {
       /* transform: translateY(-2px); */
-      border-bottom: 2px solid;
-      margin: 0px;
-    }
+    /* border-bottom: 2px solid; */
+    /* text-decoration: underline; */
+    /* margin: 0px; */
+    /* } */
   }
 `;
 
