@@ -34,7 +34,7 @@ const StyledH1 = styled.h1`
   :after {
     content: '';
     width: 0px;
-    height: 2px;
+    height: calc(2px + 0.15vw);
     display: block;
     background: ${props => props.theme.colours.TextLight};
     transition: 300ms;
@@ -93,11 +93,14 @@ const StyledUl = styled.ul`
     @media (max-width: 470px) {
       font-size: 1.4rem;
     }
-
+    a,
+    a:visited {
+      color: ${props => props.theme.colours.TextLight};
+    }
     a:after {
       content: '';
       width: 0px;
-      height: 2px;
+      height: calc(2px + 0.15vw);
       display: block;
       background: ${props => props.theme.colours.TextLight};
       transition: 300ms;
