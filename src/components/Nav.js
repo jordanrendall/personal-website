@@ -40,7 +40,7 @@ const Nav = ({ siteTitle, scrollPercentage }) => {
                   textDecoration: `none`,
                 }}
               >
-                {siteTitle}
+                {data.site.siteMetadata.title}
               </Link>
             </StyledH1>
           </StyledNavTitle>

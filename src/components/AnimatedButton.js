@@ -10,8 +10,8 @@ const StyledButton = styled.div`
     align-items: center;
     background: ${props => props.theme.colours.Dominant};
     border: 2px solid ${props => props.theme.colours.Borders};
-    border-radius: 5px;
-    padding: 0.75vw 2vw 0.75vw 2vw;
+    border-radius: 10px;
+    padding: 1vw 2.25vw 1vw 2.25vw;
     margin: 10px;
     font-size: 3vw;
     /* font-size: 1.5rem; */

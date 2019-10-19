@@ -24,7 +24,7 @@ const StyledNavTitle = styled.div`
 
 const StyledH1 = styled.h1`
   margin: 0;
-  font-size: 1.9rem;
+  font-size: calc(1.9rem + 1vw);
   letter-spacing: 0.05em;
   /* transform: translateY(5px); */
 
@@ -50,13 +50,14 @@ const StyledH1 = styled.h1`
 const NavStyles = styled.div`
   display: grid;
   grid-template-columns: auto 3fr;
-  grid-template-rows: auto 10px;
+  /* grid-template-rows: auto 10px; */
   background: ${props => props.theme.colours.Dominant};
   border-bottom: 5px solid ${props => props.theme.colours.Borders};
   /* border-bottom: 5px solid linear-gradient(${props =>
     props.theme.colours.Borders},${props => props.theme.colours.Background}); */
   /* border-top: 5px solid ${props => props.theme.colours.Borders}; */
   padding-right: 10px;
+  padding-top: 5px;
   width: 100%;
   position: fixed;
   top: 0;
@@ -87,12 +88,12 @@ const StyledUl = styled.ul`
     /* transform: translateY(5px); */
     align-self: center;
     display: flex;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 1.75rem;
+    padding: 10px 10px 10px 10px;
+    font-size: calc(1.4rem + 1.4vw);
     @media (max-width: 470px) {
       font-size: 1.4rem;
     }
+
     a:after {
       content: '';
       width: 0px;
