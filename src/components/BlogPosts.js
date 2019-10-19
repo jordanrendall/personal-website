@@ -7,6 +7,7 @@ import styled, { ThemeConsumer } from 'styled-components';
 const StyledBlogPosts = styled.section`
   display: grid;
   grid-template-columns: 1fr;
+  grid-area: blog;
 `;
 
 const StyledPost = styled.div`
@@ -22,7 +23,10 @@ const StyledPost = styled.div`
     'timeToRead .'
     'excerpt excerpt';
   justify-content: space-between;
+  @media(min-width:800px){
+
   transform: translateX(10%);
+}
   h1 {
     display: grid;
     justify-content: flex-start;

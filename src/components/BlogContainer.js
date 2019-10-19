@@ -5,11 +5,15 @@ import BlogPosts from './BlogPosts';
 import styled from 'styled-components';
 
 const StyledBlogContainer = styled.section`
-  display: flex;
+  display: grid;
   flex-direction: column;
   grid-gap: 20px;
   /* grid-template-columns: 1fr; */
+  grid-template-areas: 'filters blog';
   justify-content: center;
+  @media (max-width: 800px) {
+    grid-template-areas: 'filters' 'blog';
+  }
 `;
 const BlogContainer = () => {
   const [selectedFilters, setFilters] = useState();

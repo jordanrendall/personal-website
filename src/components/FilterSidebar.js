@@ -15,13 +15,18 @@ const StyledSidebar = styled.section`
 
   }
   border-radius: 5px;
+  grid-area: filters;
   display: flex;
   flex-direction: column;
   align-items: space-around;
   padding: 10px;
+  @media(min-width:800px){
+
   position: fixed;
-  transform: translateY(100%) translateX(-75%);
+  transform: translateY(100%) translateX(-7vw);
   top:0;
+  }
+  
 `;
 
 const StyledFilter = styled.article`
