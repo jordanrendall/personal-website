@@ -11,8 +11,9 @@ const StyledBlogPosts = styled.section`
 
 const StyledPost = styled.div`
   display: grid;
-  width: 90vw;
+  width: 75vw;
   border-radius: 5px;
+  padding: 5px;
 
   grid-template-columns: 3fr 1fr;
   grid-template-areas:
@@ -21,7 +22,7 @@ const StyledPost = styled.div`
     'timeToRead .'
     'excerpt excerpt';
   justify-content: space-between;
-  padding: 10px;
+  transform: translateX(10%);
   h1 {
     display: grid;
     justify-content: flex-start;
@@ -37,6 +38,8 @@ const StyledPost = styled.div`
     display: flex;
     grid-area: date;
     justify-content: flex-end;
+    align-items: center;
+    text-align: right;
     font-size: calc(10px + 1.5vw);
     font-weight: bold;
   }
@@ -55,7 +58,7 @@ const StyledPost = styled.div`
   :active {
     /* outline: 1px solid ${props => props.theme.colours.Borders}; */
     box-shadow: 0px 0px 10px ${props => props.theme.colours.Dominant};
-
+    transition: box-shadow 0.25s;
   }
 
   .banner {
