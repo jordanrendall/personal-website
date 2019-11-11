@@ -7,11 +7,11 @@ import styled from 'styled-components';
 const StyledBlogContainer = styled.section`
   display: grid;
   flex-direction: column;
-  grid-gap: 20px;
+  grid-gap: 40px;
   /* grid-template-columns: 1fr; */
   grid-template-areas: 'filters blog';
   justify-content: center;
-  @media (max-width: 800px) {
+  @media (max-width: 1000px) {
     grid-template-areas: 'filters' 'blog';
   }
 `;

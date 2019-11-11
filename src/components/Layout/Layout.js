@@ -5,11 +5,10 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useContext, useEffect } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import styled, { ThemeProvider } from 'styled-components';
-import SiteContext from '../context/SiteContext';
+import { SiteContext } from '../../context/SiteContext';
 import Header from './Header';
 import Footer from './Footer';
 import PageStyles from './styles/PageStyles';
@@ -87,63 +86,49 @@ const ContentWrapper = styled.main`
   /* grid-template-rows: auto 1fr auto; */
 `;
 
-class Layout extends Component {
-  state = {
-    scrollPercentage: 0,
-  };
-
-  componentDidMount = () => {
-    window.addEventListener('scroll', this.updateScrollPercentage);
-  };
-  componentWillUnmount = () => {
-    window.removeEventListener('scroll', this.updateScrollPercentage);
-  };
-
-  updateScrollPercentage = e => {
+const Layout = ({ children }) => {
+  const [scrollPercentage, setScrollPercentage] = useState(0);
+  const updateScrollPercentage = e => {
     let element = e.target.scrollingElement;
     let top = element.scrollTop;
     let max = element.scrollHeight - element.clientHeight;
-    this.setState({
-      scrollPercentage: 100 * (top / max),
-    });
+    setScrollPercentage(100 * (top / max));
   };
-  render() {
-    return (
-      <SiteContext.Consumer>
-        {context => (
-          <div className={context.blogType === 'dev' ? 'dev' : 'personal'}>
-            <ThemeProvider theme={purpleTheme}>
-              <StaticQuery
-                query={graphql`
-                  query HeadingQuery {
-                    site {
-                      siteMetadata {
-                        title
-                      }
-                    }
-                  }
-                `}
-                render={data => (
-                  <PageStyles onScroll={this.updateScrollPercentage}>
-                    <Header
-                      scrollPercentage={this.state.scrollPercentage}
-                      siteTitle={data.site.siteMetadata.title}
-                    />
-                    <ContentWrapper>{this.props.children}</ContentWrapper>
-                    <Footer />
-                  </PageStyles>
-                )}
-              />
-            </ThemeProvider>
-          </div>
-        )}
-      </SiteContext.Consumer>
-    );
-  }
-}
+  useEffect(() => {
+    document.addEventListener('scroll', updateScrollPercentage);
+  }, []);
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  const context = useContext(SiteContext);
+  return (
+    <div className={context.blogType === 'dev' ? 'dev' : 'personal'}>
+      <ThemeProvider theme={purpleTheme}>
+        <StaticQuery
+          query={graphql`
+            query HeadingQuery {
+              site {
+                siteMetadata {
+                  title
+                }
+              }
+            }
+          `}
+          render={data => (
+            <PageStyles onScroll={updateScrollPercentage}>
+              <Header
+                scrollPercentage={scrollPercentage}
+                siteTitle={data.site.siteMetadata.title}
+              />
+              <ContentWrapper>{children}</ContentWrapper>
+              <Footer />
+            </PageStyles>
+          )}
+        />
+      </ThemeProvider>
+    </div>
+  );
 };
 
 export default Layout;
+// Layout.propTypes = {
+//   children: PropTypes.node.isRequired,
+// };

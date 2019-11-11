@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import ProfilePic from '../components/ProfilePic';
 import SEO from '../components/seo';
 import styled from 'styled-components';

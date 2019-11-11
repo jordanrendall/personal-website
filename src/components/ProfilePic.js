@@ -10,14 +10,18 @@ const ProfilePic = props => {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
           fluid(maxHeight: 960) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
     }
   `);
   return (
-    <Img alt={props.alt} fluid={imageQuery.fileName.childImageSharp.fluid} />
+    <Img
+      loading='lazy'
+      alt={props.alt}
+      fluid={imageQuery.fileName.childImageSharp.fluid}
+    />
   );
 };
 

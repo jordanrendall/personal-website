@@ -20,13 +20,15 @@ const Image = () => {
         placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
           childImageSharp {
             fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
       }
     `
   );
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />;
+  return (
+    <Img loading='lazy' fluid={data.placeholderImage.childImageSharp.fluid} />
+  );
 };
 export default Image;

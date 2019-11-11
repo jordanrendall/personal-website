@@ -1,7 +1,7 @@
 import React from 'react';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { graphql, Link } from 'gatsby';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import styled from 'styled-components';
 
@@ -12,10 +12,10 @@ const StyledBlogPost = styled.div`
   width: 90vw;
   padding-top: 15px;
   p > a {
-    color: ${props=>props.theme.colours.TextDark};
+    color: ${props => props.theme.colours.TextDark};
     text-decoration: underline;
     :hover {
-      color: ${props=>props.theme.colours.Dominant};
+      color: ${props => props.theme.colours.Dominant};
     }
   }
   hr {
@@ -30,7 +30,7 @@ const StyledBlogPost = styled.div`
     );
   }
   blockquote {
-    border-left: 3px solid ${props=>props.theme.colours.Dominant};
+    border-left: 3px solid ${props => props.theme.colours.Dominant};
     padding-left: 20px;
   }
 `;
@@ -84,7 +84,7 @@ export const query = graphql`
         # #   # publicURL
         # #   childImageSharp {
         # #     fluid(maxHeight: 340) {
-        # #       ...GatsbyImageSharpFluid
+        # #       ...GatsbyImageSharpFluid_withWebp
         # #     }
         # #   }
         # # }

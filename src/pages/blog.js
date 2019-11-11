@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
-import SiteContext from '../context/SiteContext';
-import Layout from '../components/Layout';
+import React from 'react';
+import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
-import styled, { ThemeConsumer } from 'styled-components';
-import BlogContainer from '../components/BlogContainer';
-import BlogPosts from '../components/BlogPosts';
+import styled from 'styled-components';
+import BlogContainer from '../components/Blog/BlogContainer';
 
 const StyledPageTitle = styled.h1`
   text-align: center;

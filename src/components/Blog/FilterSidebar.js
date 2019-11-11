@@ -20,11 +20,12 @@ const StyledSidebar = styled.section`
   flex-direction: column;
   align-items: space-around;
   padding: 10px;
-  @media(min-width:800px){
+  @media(min-width:1000px){
 
   position: fixed;
   transform: translateY(100%) translateX(-7vw);
   top:0;
+  justify-self: center;
   }
   
 `;

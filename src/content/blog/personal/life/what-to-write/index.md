@@ -2,6 +2,8 @@
 title: 'What to Write?'
 date: '2018-10-11'
 blogType: 'personal'
+series: ''
+seriesIndex: ''
 banner: './images/banner.png'
 category: 'life'
 

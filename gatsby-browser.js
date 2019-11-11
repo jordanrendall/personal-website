@@ -7,10 +7,10 @@
 // You can delete this file if you're not using it
 import React from 'react';
 
-import { SiteContextProvider } from './src/context/SiteContext';
+import { SiteProvider } from './src/context/SiteContext';
 
 export const wrapRootElement = ({ element }) => (
-  <SiteContextProvider>{element}</SiteContextProvider>
+  <SiteProvider>{element}</SiteProvider>
 );
 
 export const registerServiceWorker = () => true;

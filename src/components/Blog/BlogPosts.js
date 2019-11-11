@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import Img from 'gatsby-image';
-import SiteContext from '../context/SiteContext';
 import styled, { ThemeConsumer } from 'styled-components';
 
 const StyledBlogPosts = styled.section`
@@ -23,7 +22,7 @@ const StyledPost = styled.div`
     'timeToRead .'
     'excerpt excerpt';
   justify-content: space-between;
-  @media(min-width:800px){
+  @media(min-width:1000px){
 
   transform: translateX(10%);
 }
@@ -92,11 +91,13 @@ const BlogPosts = ({ filters }) => {
                 blogType
                 date(formatString: "DD MMMM, YYYY")
                 category
+                series
+                seriesIndex
                 banner {
                   absolutePath
                   childImageSharp {
                     fluid {
-                      ...GatsbyImageSharpFluid
+                      ...GatsbyImageSharpFluid_withWebp
                     }
                   }
                 }
@@ -120,31 +121,31 @@ const BlogPosts = ({ filters }) => {
     });
   }
   return (
-    <SiteContext.Consumer>
-      {context => (
-        <StyledBlogPosts>
-          {posts.map(({ node }) => {
-            return (
-              <Link key={node.id} to={node.fields.slug}>
-                <StyledPost className={node.frontmatter.category}>
-                  {node.frontmatter.banner && (
-                    <Img
-                      className='banner'
-                      fluid={node.frontmatter.banner.childImageSharp.fluid}
-                      alt={`${node.frontmatter.title} Banner Image`}
-                    />
-                  )}
-                  <h1>{node.frontmatter.title}</h1>
-                  <h2>{node.frontmatter.date}</h2>
-                  <h3>{node.timeToRead} min</h3>
-                  <p>{node.excerpt}</p>
-                </StyledPost>
-              </Link>
-            );
-          })}
-        </StyledBlogPosts>
-      )}
-    </SiteContext.Consumer>
+    <StyledBlogPosts>
+      {posts.map(({ node }) => {
+        if (
+          (node.frontmatter.series && node.frontmatter.seriesIndex === 0) ||
+          !node.frontmatter.series
+        )
+          return (
+            <Link key={node.id} to={node.fields.slug}>
+              <StyledPost className={node.frontmatter.category}>
+                {node.frontmatter.banner && (
+                  <Img
+                    className='banner'
+                    fluid={node.frontmatter.banner.childImageSharp.fluid}
+                    alt={`${node.frontmatter.title} Banner Image`}
+                  />
+                )}
+                <h1>{node.frontmatter.title}</h1>
+                <h2>{node.frontmatter.date}</h2>
+                <h3>{node.timeToRead} min</h3>
+                <p>{node.excerpt}</p>
+              </StyledPost>
+            </Link>
+          );
+      })}
+    </StyledBlogPosts>
   );
 };
 

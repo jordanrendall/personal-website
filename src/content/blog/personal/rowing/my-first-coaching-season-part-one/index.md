@@ -2,6 +2,8 @@
 title: 'My First Coaching Season: Part 1'
 date: '2018-10-02'
 blogType: 'personal'
+series: ''
+seriesIndex: ''
 banner: './images/banner.png'
 category: 'rowing'
 
