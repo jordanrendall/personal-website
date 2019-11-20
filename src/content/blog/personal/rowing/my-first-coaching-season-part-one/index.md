@@ -64,3 +64,5 @@ Our coxswains were impressed with the amount of knowledge we have shared with th
 I look forward to the coming weeks, where we build up to a peak at their first championship regatta at the end of October. I can already see myself coaching again — it is a challenge for me that gets me up in the morning ready to do what I can to help others. I can’t wait to see how they do and more importantly how they feel about rowing after our short season. My goal is to place well, but only as a result of being a close knit, happy, and healthy team that loves rowing.
 
 Thanks for reading!
+
+[Check out the rest of my posts on my blog by clicking here!](/blog)

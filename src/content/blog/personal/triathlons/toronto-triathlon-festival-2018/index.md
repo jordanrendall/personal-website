@@ -101,3 +101,5 @@ In the end, I was only ahead of him by 3 seconds, placing 3rd in my age group (M
 I had a lot of fun racing in downtown Toronto and being able to make a weekend out of it with my brother. My 3rd place finish secured me a qualification spot for Age-Group World’s in Switzerland next year in the Sprint distance triathlon. I have a good year of learning ahead of me and hope to make large gains in my swim and transitions, while pushing for strength on the bike and speed on the run.
 
 Thanks for reading!
+
+[Check out the rest of my posts on my blog by clicking here!](/blog)

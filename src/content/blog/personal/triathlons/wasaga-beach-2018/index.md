@@ -91,3 +91,5 @@ For my first Olympic distance triathlon, I think it went pretty well. I knew I w
 I love the fact that we were able to make an extended trip out of a 2 hour race — I look forward to next year’s trip to Switzerland for the Age Group World Championships with my fiancee and sharing with her my athletic goals and passions.
 
 Thanks for reading!
+
+[Check out the rest of my posts on my blog by clicking here!](/blog)
