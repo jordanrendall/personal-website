@@ -100,31 +100,29 @@ const Layout = ({ children }) => {
 
   const context = useContext(SiteContext);
   return (
-    <div className={context.blogType === 'dev' ? 'dev' : 'personal'}>
-      <ThemeProvider theme={purpleTheme}>
-        <StaticQuery
-          query={graphql`
-            query HeadingQuery {
-              site {
-                siteMetadata {
-                  title
-                }
+    <ThemeProvider theme={purpleTheme}>
+      <StaticQuery
+        query={graphql`
+          query HeadingQuery {
+            site {
+              siteMetadata {
+                title
               }
             }
-          `}
-          render={data => (
-            <PageStyles onScroll={updateScrollPercentage}>
-              <Header
-                scrollPercentage={scrollPercentage}
-                siteTitle={data.site.siteMetadata.title}
-              />
-              <ContentWrapper>{children}</ContentWrapper>
-              <Footer />
-            </PageStyles>
-          )}
-        />
-      </ThemeProvider>
-    </div>
+          }
+        `}
+        render={data => (
+          <PageStyles onScroll={updateScrollPercentage}>
+            <Header
+              scrollPercentage={scrollPercentage}
+              siteTitle={data.site.siteMetadata.title}
+            />
+            <ContentWrapper>{children}</ContentWrapper>
+            <Footer />
+          </PageStyles>
+        )}
+      />
+    </ThemeProvider>
   );
 };
 

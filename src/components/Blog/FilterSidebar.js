@@ -23,7 +23,7 @@ const StyledSidebar = styled.section`
   @media(min-width:1000px){
 
   position: fixed;
-  transform: translateY(100%) translateX(-7vw);
+  transform: translateY(100%);
   top:0;
   justify-self: center;
   }

@@ -15,6 +15,7 @@ const PageStyles = styled.div`
   color: ${props => props.theme.colours.TextDark};
   flex: 1 0 auto;
 
+  /* font-size: 2vw; */
   main {
     a {
       color: ${props => props.theme.colours.TextDark};

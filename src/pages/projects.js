@@ -5,10 +5,11 @@ import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import styled from 'styled-components';
 
-const StyledDiv = styled.div`
+const StyledProjects = styled.section`
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-
+  align-items: center;
   h1 {
     font-size: 2rem;
     padding: 20px;
@@ -19,13 +20,10 @@ const StyledDiv = styled.div`
 const OtherProjectsPage = () => (
   <Layout>
     <SEO title='Projects' />
-    <StyledDiv>
+    <StyledProjects>
       <h1>Coming Soon!</h1>
-    </StyledDiv>
-
-    <StyledDiv>
       <Link to='/'>Go back to the homepage</Link>
-    </StyledDiv>
+    </StyledProjects>
   </Layout>
 );
 
