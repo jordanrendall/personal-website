@@ -101,4 +101,4 @@ Remaining this year, I just have my race on August 31st in Lausanne, Switzerland
 Thanks for reading!
 ~ Jordan
 
-<u>[Check out the rest of my posts on my blog by clicking here!](/blog)</u>
+<u> [Check out the rest of my posts on my blog by clicking here!](/blog) </u>

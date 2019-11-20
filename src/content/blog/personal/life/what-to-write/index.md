@@ -10,7 +10,8 @@ category: 'life'
 excerpt: 'How do I determine what to write about? Should it just come to me naturally or should I seek it out? Can I continue the rhyme that I...'
 ---
 
-![Banner Image.](./images/banner.png)
+![Banner Image](./images/banner.png)
+
 How do I determine what to write about? Should it just come to me naturally or should I seek it out? Can I continue the rhyme that I have laid out, or did I choose a sound that I cannot shout — from the rooftops, what is it I have here?
 
 Is this a poem to revere or a song to be heard? Let me see what I can conjure. Can it stand the strength of my peers?

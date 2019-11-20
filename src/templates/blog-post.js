@@ -4,6 +4,7 @@ import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import styled from 'styled-components';
+import Img from 'gatsby-image';
 
 const StyledBlogPost = styled.div`
   display: flex;
@@ -47,7 +48,7 @@ const StyledLink = styled.span`
 `;
 
 const blogPost = ({ data }) => {
-  const post = data.mdx;
+  const post = data.allMdx.edges[0].node;
   return (
     <Layout>
       <SEO title={post.frontmatter.title} />
@@ -60,7 +61,8 @@ const blogPost = ({ data }) => {
         <hr />
         <div>
           <h1>{post.frontmatter.title}</h1>
-          <MDXRenderer>{post.code.body}</MDXRenderer>
+          {/* <Img fluid={post.frontmatter.banner.childImageSharp.fluid} /> */}
+          <MDXRenderer>{post.body}</MDXRenderer>
         </div>
         <hr />
       </StyledBlogPost>
@@ -76,21 +78,26 @@ const blogPost = ({ data }) => {
 export default blogPost;
 
 export const query = graphql`
-  query($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        # banner #{
-        # #   # publicURL
-        # #   childImageSharp {
-        # #     fluid(maxHeight: 340) {
-        # #       ...GatsbyImageSharpFluid_withWebp
-        # #     }
-        # #   }
-        # # }
-      }
-      code {
-        body
+  query getPosts($slug: String!) {
+    allMdx(filter: { fields: { slug: { eq: $slug } } }) {
+      edges {
+        node {
+          frontmatter {
+            title
+            banner {
+              publicURL
+              childImageSharp {
+                fluid(maxHeight: 340) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          body
+          fields {
+            slug
+          }
+        }
       }
     }
   }
