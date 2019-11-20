@@ -1,7 +1,7 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
-import GithubLogo from './GithubLogo';
+import GitHubLogo from './GitHubLogo';
 import LinkedInLogo from './LinkedInLogo';
 import styled from 'styled-components';
 
@@ -21,7 +21,7 @@ const StyledLogos = styled.article`
 const Logos = () => {
   return (
     <StyledLogos>
-      <GithubLogo />
+      <GitHubLogo />
       <LinkedInLogo />
     </StyledLogos>
 
