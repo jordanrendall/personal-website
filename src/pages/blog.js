@@ -24,7 +24,7 @@ const Filters = styled.section`
   }
   display: grid;
   grid-template-columns: 1fr 3fr;
-  @media (max-width: 540px) {
+  @media (max-width: ${props => props.theme.breakpoints.MobileSm}) {
     grid-template-columns: 1fr;
   }
 `;
@@ -32,7 +32,7 @@ const StyledCategories = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  @media (max-width: 540px) {
+  @media (max-width: ${props => props.theme.breakpoints.MobileSm}) {
     flex-direction: column;
   }
   .category {
@@ -77,7 +77,7 @@ const ThemeButton = styled.button`
     transform: translateY(-1px);
   }
 
-  @media (max-width: 750px) {
+  @media (max-width: ${props => props.theme.breakpoints.MobileLg}) {
     font-size: 4vw;
   }
 `;

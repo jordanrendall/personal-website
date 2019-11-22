@@ -11,7 +11,7 @@ const StyledBlogContainer = styled.section`
   /* grid-template-columns: 1fr; */
   grid-template-areas: 'filters blog';
   justify-content: center;
-  @media (max-width: 1000px) {
+  @media (max-width: ${props => props.theme.breakpoints.DesktopSm}) {
     grid-template-areas: 'filters' 'blog';
   }
 `;

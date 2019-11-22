@@ -87,7 +87,7 @@ export const query = graphql`
             banner {
               publicURL
               childImageSharp {
-                fluid(maxHeight: 340) {
+                fluid(maxHeight: 330) {
                   ...GatsbyImageSharpFluid
                 }
               }

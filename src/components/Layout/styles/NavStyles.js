@@ -42,7 +42,7 @@ const StyledH1 = styled.h1`
   :hover:after {
     width: 100%;
   }
-  @media (max-width: 470px) {
+  @media (max-width: ${props => props.theme.breakpoints.MobileSm}) {
     font-size: 1.5rem;
   }
 `;
@@ -77,6 +77,19 @@ const NavStyles = styled.div`
       
     }
   }
+  .menu-icon,
+  .toggled-nav {
+    display: none;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.MobileLg}) {
+    ul[orientation='horizontal'] {
+      display: none;
+    }
+    .menu-icon,
+    .toggled-nav {
+      display: flex;
+    }
+  }
 `;
 
 const StyledUl = styled.ul`
@@ -90,7 +103,7 @@ const StyledUl = styled.ul`
     display: flex;
     padding: 10px 10px 10px 10px;
     font-size: calc(1.4rem + 1.4vw);
-    @media (max-width: 470px) {
+    @media (max-width: ${props => props.theme.breakpoints.MobileSm}) {
       font-size: 1.4rem;
     }
     a,

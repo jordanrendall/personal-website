@@ -60,6 +60,11 @@ const purpleTheme = {
   colorcomplement4: '#B25E00',
   contentFont: "'Roboto', sans-serif",
   headingFont: "'Source Sans Pro', sans-serif",
+
+  breakpoint1: '550px',
+  breakpoint2: '850px',
+  breakpoint3: '1000px',
+
   init: function() {
     this.colours = {
       Dominant: this.midBlue,
@@ -73,7 +78,11 @@ const purpleTheme = {
       Content: this.contentFont,
       Headings: this.headingFont,
     };
-
+    this.breakpoints = {
+      MobileSm: this.breakpoint1,
+      MobileLg: this.breakpoint2,
+      DesktopSm: this.breakpoint3,
+    };
     return this;
   },
 }.init();

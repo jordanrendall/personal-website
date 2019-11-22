@@ -20,7 +20,7 @@ const StyledSidebar = styled.section`
   flex-direction: column;
   align-items: space-around;
   padding: 10px;
-  @media(min-width:1000px){
+  @media(min-width:${props => props.theme.breakpoints.DesktopSm}){
 
   position: fixed;
   transform: translateY(100%);

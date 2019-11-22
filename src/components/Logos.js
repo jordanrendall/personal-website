@@ -1,6 +1,4 @@
 import React from 'react';
-import Img from 'gatsby-image';
-import { useStaticQuery, graphql } from 'gatsby';
 import GitHubLogo from './GitHubLogo';
 import LinkedInLogo from './LinkedInLogo';
 import styled from 'styled-components';
@@ -12,6 +10,9 @@ const StyledLogos = styled.article`
   justify-content: center;
   align-items: center;
   width: 100%;
+  .logo {
+    margin: 10px;
+  }
   img {
     padding: 5px;
     width: 150px;
@@ -21,15 +22,9 @@ const StyledLogos = styled.article`
 const Logos = () => {
   return (
     <StyledLogos>
-      <GitHubLogo />
-      <LinkedInLogo />
+      <GitHubLogo size={50} />
+      <LinkedInLogo size={50} />
     </StyledLogos>
-
-    // <Img
-    //   loading='lazy'
-    //   alt={props.alt}
-    //   fluid={logosQuery.fileName.childImageSharp.fluid}
-    // />
   );
 };
 

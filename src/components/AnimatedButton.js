@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const StyledButton = styled.div`
   .animated-button {
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +26,7 @@ const StyledButton = styled.div`
       box-shadow: 0px 0px 20px ${props => props.theme.colours.Borders}
     }
 
-    @media (max-width: 750px) {
+    @media (max-width: ${props => props.theme.breakpoints.MobileLg}) {
       font-size: 4vw;
     }
   }

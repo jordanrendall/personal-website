@@ -7,6 +7,8 @@ import NavStyles, {
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import ProgressBar from '../ProgressBar';
 import PropTypes from 'prop-types';
+import Hamburger from '../Hamburger';
+
 const Nav = ({ scrollPercentage }) => {
   const data = useStaticQuery(
     graphql`

@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Link } from 'gatsby';
 import Layout from '../components/Layout/Layout';
 import ProfilePic from '../components/ProfilePic';
 import SEO from '../components/seo';
@@ -6,37 +7,68 @@ import styled from 'styled-components';
 import { useSpring, animated, useChain } from 'react-spring';
 import AnimatedButton from '../components/AnimatedButton';
 import Logos from '../components/Logos';
-const StyledPage = styled.section`
-  display: grid;
-  grid-template-columns: 500px 1fr;
-  grid-template-areas: 'image other';
-  img {
-    grid-area: image;
-    /* box-shadow: 1px 1px 5px ${props => props.theme.colours.Borders}; */
 
-    /* border: 3px solid ${props => props.theme.colours.Borders}; */
-  }
+const StyledButton = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: ${props => props.theme.colours.Dominant};
+    border: 2px solid ${props => props.theme.colours.Borders};
+    border-radius: 10px;
+    padding: 1vw 2.25vw 1vw 2.25vw;
+    margin: 10px;
+    font-size: 2rem;
+    width: 8rem;
+    height: 8rem;
+    /* font-size: 1.5rem; */
+    color: ${props => props.theme.colours.TextLight};
+  text-align: center;
+    &:hover,
+    :focus,
+    :active {
+      /* background: ${props => props.theme.colours.Borders}; */
+      transform: translateY(-1px);
+      box-shadow: 0px 0px 20px ${props => props.theme.colours.Borders}
+    }
 
-  @media (max-width: 860px) {
-    grid-template-areas: 'other' 'image';
-    grid-template-columns: 1fr;
-  }
-  /* padding: 10px;
-  display: grid;
-  justify-items: center;
-  align-content: center; */
-  /* @media (max-width: 700px) {
-    grid-template-columns: 1fr;
-  } */
+    @media (max-width: ${props => props.theme.breakpoints.MobileLg}) {
+      font-size: 2rem;
+    }
+    @media (max-width: ${props => props.theme.breakpoints.MobileSm}) {
+      font-size: 1.75rem;
+    }
 `;
 
-const Title = styled.span`
+const StyledPage = styled.section`
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-areas: 'image other';
+  justify-content: center;
+  align-items: center;
+  img {
+    grid-area: image;
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.MobileLg}) {
+    grid-template-areas: 'other' 'image';
+    grid-template-columns: 1fr;
+    display: grid;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const Title = styled.article`
   grid-area: other;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  font-size: 3vw;
+  font-size: 2rem;
+  text-align: center;
   padding: 20px;
   margin: 10px 10px;
   h1 {
@@ -57,7 +89,7 @@ const Title = styled.span`
     }
   }
 
-  @media (max-width: 860px) {
+  @media (max-width: ${props => props.theme.breakpoints.MobileLg}) {
     margin: 0;
     h1 {
       margin-top: -20px;
@@ -75,43 +107,24 @@ const IndexPage = ({ data }) => {
     ref: welcomeRef,
   });
 
-  const button1Ref = useRef();
-  const Button1 = useSpring({
-    opacity: 1,
-    from: { opacity: 0 },
-    delay: 0,
-    friction: 50,
-    ref: button1Ref,
-  });
-  const button2Ref = useRef();
-  const Button2 = useSpring({
-    opacity: 1,
-    from: { opacity: 0 },
-    delay: 0,
-    friction: 0,
-    ref: button2Ref,
-  });
-
-  const chain = useChain([welcomeRef, button1Ref, button2Ref]);
   return (
     <Layout>
       <SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
       <StyledPage>
         <ProfilePic alt='Jordan Rendall Profile Picture' />
         <Title>
-          <animated.h1 style={welcomeSpring}>
-            Welcome!
-            <br /> Feel free to check out
-          </animated.h1>
-
+          <p>Welcome!</p>
+          <p>Feel free to check out</p>
           <div className='main-cta-group'>
-            <AnimatedButton to={'/blog'} text={'My Blog'} spring={Button1} />
-            <AnimatedButton
-              to={'/projects'}
-              text={'My Current Projects'}
-              spring={Button2}
-            />
+            <Link to={'/blog'}>
+              <StyledButton>My Blog</StyledButton>
+            </Link>
+            <Link to={'/projects'}>
+              <StyledButton>My Current Projects</StyledButton>
+            </Link>
           </div>
+
+          <p>Or connect @</p>
           <Logos />
         </Title>
       </StyledPage>

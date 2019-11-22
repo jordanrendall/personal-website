@@ -22,7 +22,7 @@ const StyledPost = styled.div`
     'timeToRead .'
     'excerpt excerpt';
   justify-content: space-between;
-  @media(min-width:1000px){
+  @media(min-width:${props => props.theme.breakpoints.DesktopSm}){
 
   transform: translateX(10%);
 }
