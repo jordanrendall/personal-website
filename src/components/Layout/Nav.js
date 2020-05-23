@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import NavStyles, {
   StyledH1,
   // StyledNavTitle,
@@ -26,9 +26,14 @@ const Nav = ({ scrollPercentage, page }) => {
       }
     `
   );
+  let onBlog = false;
   const opacity = scrollPercentage > 0 ? 0.4 : 1;
-  const regex = /blog\/(\w)*/g;
-  const onBlog = window.location.href.match(regex);
+
+  useLayoutEffect(() => {
+    const regex = /blog\/(\w)*/g;
+    const onBlog = window.location.href.match(regex);
+  }, []);
+
   return (
     <NavStyles id='navbar' style={{ opacity }}>
       {/* <StyledNavTitle> */}
