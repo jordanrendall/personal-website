@@ -26,13 +26,12 @@ const Nav = ({ scrollPercentage, page }) => {
       }
     `
   );
-  let onBlog = false;
   const opacity = scrollPercentage > 0 ? 0.4 : 1;
 
-  useLayoutEffect(() => {
-    const regex = /blog\/(\w)*/g;
-    const onBlog = window.location.href.match(regex);
-  }, []);
+  // useLayoutEffect(() => {
+  const regex = /blog\/(\w)*/g;
+  const onBlog = window ? window.location.href.match(regex) : false;
+  // }, []);
 
   return (
     <NavStyles id='navbar' style={{ opacity }}>
