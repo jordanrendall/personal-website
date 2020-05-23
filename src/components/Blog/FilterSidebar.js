@@ -17,12 +17,12 @@ const StyledSidebar = styled.section`
   padding: ${sizes(2)};
   width: 100%;
 
-  /* @media (max-width: ${breakpoints.mobileLg}px) { */
+  @media (max-width: ${breakpoints.mobileLg}px) {
     flex-direction: row;
     width: 100%;
     justify-content: center;
     align-items: center;
-  /* } */
+  }
   @media (max-width: ${breakpoints.mobile}px) {
     flex-direction: column;
     width: 100%;
@@ -31,7 +31,7 @@ const StyledSidebar = styled.section`
   }
 
   @media (min-width: ${breakpoints.mobileLg}px) {
-    @supports (display: grid){
+    @supports (display: grid) {
       position: fixed;
       flex-direction: column;
       width: 25%;
@@ -40,8 +40,13 @@ const StyledSidebar = styled.section`
       left: 0;
       justify-self: center;
     }
+    @supports not (display: grid) {
+      flex-direction: row;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
   }
- 
 `;
 
 const FilterSidebar = ({ selected, categories, set }) => {
