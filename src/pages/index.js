@@ -51,6 +51,9 @@ const StyledPage = styled.section`
   @supports not (display: grid) {
     display: flex;
     justify-content: space-between;
+    img {
+      width: 500px;
+    }
   }
 
   img {
