@@ -6,6 +6,7 @@ import { breakpoints, colours, sizes } from '../Utilities';
 const StyledSidebar = styled.section`
   h2 {
     height: auto;
+    width: auto;
   }
 
   border-radius: ${sizes(2)};
