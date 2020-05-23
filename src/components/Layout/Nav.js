@@ -1,7 +1,8 @@
 import React from 'react';
 import NavStyles, {
   StyledH1,
-  StyledNavTitle,
+  // StyledNavTitle,
+  MenuLink,
   StyledUl,
 } from './styles/NavStyles';
 import { graphql, useStaticQuery, Link } from 'gatsby';
@@ -29,24 +30,17 @@ const Nav = ({ scrollPercentage }) => {
 
   return (
     <NavStyles id='navbar' style={{ opacity }}>
-      <StyledNavTitle>
-        <StyledH1>
-          <Link
-            to='/'
-            style={{
-              textDecoration: `none`,
-            }}
-          >
-            {data.site.siteMetadata.title}
-          </Link>
-        </StyledH1>
-      </StyledNavTitle>
+      {/* <StyledNavTitle> */}
+      <StyledH1>
+        <Link to='/'>{data.site.siteMetadata.title}</Link>
+      </StyledH1>
+      {/* </StyledNavTitle> */}
       <StyledUl>
-        {data.site.siteMetadata.menuLinks.map(i => {
+        {data.site.siteMetadata.menuLinks.map((i) => {
           return (
-            <li key={i.name}>
+            <MenuLink key={i.name}>
               <Link to={i.link}>{i.name}</Link>
-            </li>
+            </MenuLink>
           );
         })}
       </StyledUl>

@@ -1,19 +1,18 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 import Layout from '../components/Layout/Layout';
 import ProfilePic from '../components/ProfilePic';
 import SEO from '../components/seo';
 import styled from 'styled-components';
-import { useSpring, animated, useChain } from 'react-spring';
-import AnimatedButton from '../components/AnimatedButton';
 import Logos from '../components/Logos';
+import { breakpoints } from '../components/Utilities';
 
 const StyledButton = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: ${props => props.theme.colours.Dominant};
-    border: 2px solid ${props => props.theme.colours.Borders};
+    background: ${(props) => props.theme.colours.Dominant};
+    border: 2px solid ${(props) => props.theme.colours.Borders};
     border-radius: 10px;
     padding: 1vw 2.25vw 1vw 2.25vw;
     margin: 10px;
@@ -21,37 +20,43 @@ const StyledButton = styled.div`
     width: 8rem;
     height: 8rem;
     /* font-size: 1.5rem; */
-    color: ${props => props.theme.colours.TextLight};
+    color: ${(props) => props.theme.colours.TextLight};
   text-align: center;
     &:hover,
     :focus,
     :active {
-      /* background: ${props => props.theme.colours.Borders}; */
+      /* background: ${(props) => props.theme.colours.Borders}; */
       transform: translateY(-1px);
-      box-shadow: 0px 0px 20px ${props => props.theme.colours.Borders}
+      box-shadow: 0px 0px 20px ${(props) => props.theme.colours.Borders}
     }
 
-    @media (max-width: ${props => props.theme.breakpoints.MobileLg}) {
+    @media (max-width: ${(props) => props.theme.breakpoints.MobileLg}) {
       font-size: 2rem;
     }
-    @media (max-width: ${props => props.theme.breakpoints.MobileSm}) {
+    @media (max-width: ${(props) => props.theme.breakpoints.MobileSm}) {
       font-size: 1.75rem;
     }
 `;
 
 const StyledPage = styled.section`
   display: grid;
-  grid-template-columns: 400px 1fr;
+  grid-template-columns: 500px 1fr;
   grid-template-areas: 'image other';
   justify-content: center;
   align-items: center;
+
   img {
     grid-area: image;
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 500px;
+    max-height: 500px;
   }
-
-  @media (max-width: ${props => props.theme.breakpoints.MobileLg}) {
+  .gatsby-image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: ${breakpoints.mobileLg}px) {
     grid-template-areas: 'other' 'image';
     grid-template-columns: 1fr;
     display: grid;
@@ -89,7 +94,7 @@ const Title = styled.article`
     }
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.MobileLg}) {
+  @media (max-width: ${breakpoints.mobileLg}px) {
     margin: 0;
     h1 {
       margin-top: -20px;
@@ -98,15 +103,6 @@ const Title = styled.article`
 `;
 
 const IndexPage = ({ data }) => {
-  const welcomeRef = useRef();
-  const welcomeSpring = useSpring({
-    opacity: 1,
-    from: { opacity: 0 },
-    delay: 0,
-    friction: 0,
-    ref: welcomeRef,
-  });
-
   return (
     <Layout>
       <SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />

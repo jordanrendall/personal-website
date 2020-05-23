@@ -1,79 +1,77 @@
 import styled from 'styled-components';
+import { sizes, colours, breakpoints } from '../../Utilities';
+// const StyledNavTitle = styled.div`
+//   display: flex;
+//   justify-content: flex-start;
+//   padding-left: ${sizes(3)}px;
+//   align-items: center;
+//   height: auto;
+//   a {
+//     font-weight: 500;
 
-const StyledNavTitle = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 10px;
-  align-items: center;
-  height: auto;
-  a {
-    font-weight: 500;
-
-    color: ${props => props.theme.colours.TextLight};
-    &:hover,
-    :active,
-    :focus {
-      color: ${props => props.theme.colours.TextDark};
-    }
-    &:visited {
-      color: ${props => props.theme.colours.TextLight};
-    }
-  }
-  transition: opacity 2s;
-`;
+//     color: ${(props) => props.theme.colours.TextLight};
+//     &:hover,
+//     :active,
+//     :focus {
+//       color: ${(props) => props.theme.colours.TextDark};
+//     }
+//     &:visited {
+//       color: ${(props) => props.theme.colours.TextLight};
+//     }
+//   }
+//   transition: opacity 2s;
+// `;
 
 const StyledH1 = styled.h1`
   margin: 0;
-  font-size: calc(1.9rem + 1vw);
-  letter-spacing: 0.05em;
-  /* transform: translateY(5px); */
-
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  padding: ${sizes(2)};
   :after {
     content: '';
     width: 0px;
-    height: calc(2px + 0.15vw);
+    /* height: calc(2px + 0.15vw); */
     display: block;
-    background: ${props => props.theme.colours.TextLight};
+    background: ${(props) => props.theme.colours.TextLight};
     transition: 300ms;
   }
   :hover:after {
     width: 100%;
   }
-  @media (max-width: ${props => props.theme.breakpoints.MobileSm}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.MobileSm}) {
     font-size: 1.5rem;
   }
 `;
 
-const NavStyles = styled.div`
+const NavStyles = styled.nav`
   display: grid;
-  grid-template-columns: auto 3fr;
-  /* grid-template-rows: auto 10px; */
-  background: ${props => props.theme.colours.Dominant};
-  border-bottom: 5px solid ${props => props.theme.colours.Borders};
-  /* border-bottom: 5px solid linear-gradient(${props =>
-    props.theme.colours.Borders},${props => props.theme.colours.Background}); */
-  /* border-top: 5px solid ${props => props.theme.colours.Borders}; */
-  padding-right: 10px;
-  padding-top: 5px;
+  grid-template-columns: 1fr 3fr;
+  /* grid-template-rows: auto ${sizes(3)}px; */
+  background: ${(props) => props.theme.colours.Dominant};
+  border-bottom: 5px solid ${(props) => props.theme.colours.Borders};
+  /* border-bottom: 5px solid linear-gradient(${(props) =>
+    props.theme.colours.Borders},${(props) =>
+  props.theme.colours.Background}); */
+  /* border-top: 5px solid ${(props) => props.theme.colours.Borders}; */
+  padding-right: ${sizes(3)}px;
+  /* padding-top: 5px; */
   width: 100%;
   position: fixed;
   top: 0;
   z-index: 1;
-  color: ${props => props.theme.colours.TextLight};
+  color: ${(props) => props.theme.colours.TextLight};
   list-style-type: none;
 
   a {
     &:visited {
-      color: ${props => props.theme.colours.TextLight};
+      color: ${(props) => props.theme.colours.TextLight};
     }
     text-decoration: none;
     &:hover,
     :focus,
     :active {
-      color: ${props => props.theme.colours.TextLight};
+      color: ${(props) => props.theme.colours.TextLight};
       
     }
   }
@@ -81,7 +79,7 @@ const NavStyles = styled.div`
   .toggled-nav {
     display: none;
   }
-  @media (max-width: ${props => props.theme.breakpoints.MobileLg}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.MobileLg}) {
     ul[orientation='horizontal'] {
       display: none;
     }
@@ -93,53 +91,56 @@ const NavStyles = styled.div`
 `;
 
 const StyledUl = styled.ul`
+  width: 100%;
   display: flex;
   justify-self: flex-end;
-  padding-right: 10px;
-  li {
-    font-weight: 500;
-    /* transform: translateY(5px); */
-    align-self: center;
-    display: flex;
-    padding: 10px 10px 10px 10px;
-    font-size: calc(1.4rem + 1.4vw);
-    @media (max-width: ${props => props.theme.breakpoints.MobileSm}) {
-      font-size: 1.4rem;
-    }
-    a,
-    a:visited {
-      color: ${props => props.theme.colours.TextLight};
-    }
-    a:after {
-      content: '';
-      width: 0px;
-      height: calc(2px + 0.15vw);
-      display: block;
-      background: ${props => props.theme.colours.TextLight};
-      transition: 300ms;
-    }
-    a:hover:after {
-      width: 100%;
-    }
-
-    /* :hover,
-    :active,
-    :focus {
-      /* transform: translateY(-2px); */
-    /* border-bottom: 2px solid; */
-    /* text-decoration: underline; */
-    /* margin: 0px; */
-    /* } */
+  justify-content: space-around;
+  padding: 0;
+  @media (max-width: ${breakpoints.mobileLg}px) {
+    width: 80%;
+  }
+  @media (max-width: ${breakpoints.mobile}px) {
+    width: 100%;
+  }
+  @media (min-width: ${breakpoints.mobileLg}px) {
+    width: 40%;
   }
 `;
 
+const MenuLink = styled.li`
+  /* font-weight: 500; */
+  /* transform: translateY(5px); */
+  align-self: center;
+  display: flex;
+  /* margin: ${sizes(3)}; */
+    font-size: ${sizes(4)};
+  /* padding: ${sizes(4)}px; */
+  /* font-size: calc(1.4rem + 1.4vw); */
+  a,
+  a:visited {
+    color: ${(props) => props.theme.colours.TextLight};
+  }
+  a:after {
+    content: '';
+    width: 0px;
+    height: ${sizes(0)};
+    /* height: calc(2px + 0.15vw); */
+    display: block;
+    background: ${(props) => props.theme.colours.TextLight};
+    transition: 300ms;
+    transform:translateY(-${sizes(0)});
+  }
+  a:hover:after {
+    width: 100%;
+  }
+`;
 // const ThemeButton = styled.button`
 //   display: flex;
 //   padding: 2px;
 //   background: ${props => props.theme.colours.Dominant};
 //   font-size: 1rem;
 //   margin: 0px;
-//   border-radius: 10px;
+//   border-radius: ${sizes(3)}px;
 //   justify-content: center;
 //   justify-self: center;
 //   width: fit-content;
@@ -154,4 +155,5 @@ const StyledUl = styled.ul`
 // `;
 
 export default NavStyles;
-export { StyledH1, StyledNavTitle, StyledUl };
+export { StyledH1, StyledUl, MenuLink };
+// export { StyledH1, StyledNavTitle, StyledUl };

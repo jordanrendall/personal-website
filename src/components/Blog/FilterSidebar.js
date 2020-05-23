@@ -1,42 +1,54 @@
 import React from 'react';
 import styled from 'styled-components';
+import FilterButton from './FilterButton';
+import { breakpoints, colours, sizes } from '../Utilities';
 
 const StyledSidebar = styled.section`
   h2 {
-    /* background: ${props => props.theme.colours.Dominant}; */
     height: auto;
-    /* opacity: 0.3; */
   }
-  :hover,
-  :active,
-  :focus {
-    box-shadow: 0px 0px 10px ${props => props.theme.colours.Dominant};
-    transition: box-shadow 0.25s;
 
-  }
-  border-radius: 5px;
+  border-radius: ${sizes(2)};
   grid-area: filters;
   display: flex;
   flex-direction: column;
-  align-items: space-around;
-  padding: 10px;
-  @media(min-width:${props => props.theme.breakpoints.DesktopSm}){
+  /* align-items: center; */
+  /* justify-content:flex-start; */
+  padding: ${sizes(2)};
+  width: 100%;
 
-  position: fixed;
-  transform: translateY(100%);
-  top:0;
-  justify-self: center;
+  @media (max-width: ${breakpoints.mobileLg}px) {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
   }
-  
+  @media (max-width: ${breakpoints.mobile}px) {
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (min-width: ${breakpoints.mobileLg}px) {
+    position: fixed;
+    flex-direction: column;
+    width: 25%;
+    transform: translateY(50%);
+    top: 0;
+    left: 0;
+    justify-self: center;
+  }
 `;
 
 const StyledFilter = styled.article`
   display: grid;
   grid-template-columns: 3fr 1fr;
+  grid-gap: 1rem;
   justify-content: center;
   align-items: center;
   .filter-checkbox:hover {
-    box-shadow: 0 0 5px ${props => props.theme.colours.Dominant};
+    box-shadow: 0 0 5px ${(props) => props.theme.colours.Dominant};
     transition: box-shadow 0.25s;
   }
   .filter-checkbox:hover ~ .filter-label {
@@ -44,34 +56,31 @@ const StyledFilter = styled.article`
   }
 `;
 
-const FilterSidebar = ({ categories, set }) => {
-  const updateFilters = e => {
-    const name = e.target.name;
-    const checked = e.target.checked;
-    set(prevState => ({
+const FilterSidebar = ({ selected, categories, set }) => {
+  const updateFilters = (category) => {
+    // const name = e.target;
+    // const checked = e.target;
+    set((prevState) => ({
       ...prevState,
-      [name]: checked,
+      [category]: selected ? !selected[category] : true,
     }));
   };
   return (
-    <StyledSidebar>
-      <h2>Filter by:</h2>
-      {categories.map((category, i) => {
-        return (
-          <StyledFilter key={`filter-${i}`}>
-            <label className='filter-label'>
-              {category.slice(0, 1).toUpperCase() + category.slice(1)}
-            </label>
-            <input
-              className='filter-checkbox'
-              type='checkbox'
-              name={category}
-              onClick={e => updateFilters(e)}
+    <>
+      <StyledSidebar>
+        <h2>Filters</h2>
+        {categories.map((category, i) => {
+          return (
+            <FilterButton
+              key={`filter-button-${i}`}
+              filter={category}
+              set={() => updateFilters(category)}
+              active={selected ? selected[category] : false}
             />
-          </StyledFilter>
-        );
-      })}
-    </StyledSidebar>
+          );
+        })}
+      </StyledSidebar>
+    </>
   );
 };
 

@@ -1,14 +1,14 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
-const ProfilePic = props => {
+const ProfilePic = (props) => {
   const imageQuery = useStaticQuery(graphql`
     query {
       fileName: file(relativePath: { eq: "profile-pic.png" }) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
           # Makes it trivial to update as your page's design changes.
-          fluid(maxHeight: 960) {
+          fluid(maxHeight: 500) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }

@@ -3,20 +3,22 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 import FilterSidebar from './FilterSidebar';
 import BlogPosts from './BlogPosts';
 import styled from 'styled-components';
+import { sizes, breakpoints } from '../Utilities';
 
 const StyledBlogContainer = styled.section`
   display: grid;
-  flex-direction: column;
-  grid-gap: 40px;
-  /* grid-template-columns: 1fr; */
+  /* flex-direction: column; */
+  grid-gap: ${sizes(4)};
+  grid-template-columns: 1fr 3fr;
   grid-template-areas: 'filters blog';
   justify-content: center;
-  @media (max-width: ${props => props.theme.breakpoints.DesktopSm}) {
+  @media (max-width: ${breakpoints.mobileLg}px) {
+    grid-template-columns: 1fr;
     grid-template-areas: 'filters' 'blog';
   }
 `;
 const BlogContainer = () => {
-  const [selectedFilters, setFilters] = useState();
+  const [selectedFilters, setFilters] = useState(categories);
   const data = useStaticQuery(
     graphql`
       query {
@@ -36,7 +38,7 @@ const BlogContainer = () => {
     .map(({ node }) => {
       const category = node.frontmatter.category;
 
-      return category; //category.slice(0, 1).toUpperCase() + category.slice(1);
+      return category;
     })
     .filter((value, index, self) => {
       return self.indexOf(value) === index;
@@ -45,7 +47,11 @@ const BlogContainer = () => {
 
   return (
     <StyledBlogContainer>
-      <FilterSidebar categories={categories} set={setFilters} />
+      <FilterSidebar
+        selected={selectedFilters}
+        categories={categories}
+        set={setFilters}
+      />
       <BlogPosts filters={selectedFilters} />
     </StyledBlogContainer>
   );

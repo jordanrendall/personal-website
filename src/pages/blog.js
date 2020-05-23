@@ -19,12 +19,12 @@ const Filters = styled.section`
     :hover {
       text-decoration: underline;
 
-      text-decoration-color: ${props => props.theme.colours.TextDark};
+      text-decoration-color: ${(props) => props.theme.colours.TextDark};
     }
   }
   display: grid;
   grid-template-columns: 1fr 3fr;
-  @media (max-width: ${props => props.theme.breakpoints.MobileSm}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.MobileSm}) {
     grid-template-columns: 1fr;
   }
 `;
@@ -32,7 +32,7 @@ const StyledCategories = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  @media (max-width: ${props => props.theme.breakpoints.MobileSm}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.MobileSm}) {
     flex-direction: column;
   }
   .category {
@@ -44,17 +44,17 @@ const StyledCategories = styled.div`
     font-size: 1rem;
     padding: 10px 20px 10px 20px;
     border-radius: 10px;
-    border: 2px solid ${props => props.theme.colours.Borders};
+    border: 2px solid ${(props) => props.theme.colours.Borders};
     outline: none;
 
-    background: ${props =>
+    background: ${(props) =>
       props.selected === true
         ? props.theme.colours.Borders
         : props.theme.colours.Dominant};
-    color: ${props => props.theme.colours.TextLight};
+    color: ${(props) => props.theme.colours.TextLight};
     :active,
     :hover {
-      background: ${props => props.theme.colours.Borders};
+      background: ${(props) => props.theme.colours.Borders};
     }
   }
 `;
@@ -62,22 +62,22 @@ const ThemeButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: ${props => props.theme.colours.Dominant};
-  border: 2px solid ${props => props.theme.colours.Borders};
+  background: ${(props) => props.theme.colours.Dominant};
+  border: 2px solid ${(props) => props.theme.colours.Borders};
   border-radius: 5px;
   padding: 0.75vw 2vw 0.75vw 2vw;
   margin: 10px;
   font-size: 3vw;
   /* font-size: 1.5rem; */
-  color: ${props => props.theme.colours.TextLight};
+  color: ${(props) => props.theme.colours.TextLight};
 
   &:hover,
   :focus {
-    background: ${props => props.theme.colours.Borders};
+    background: ${(props) => props.theme.colours.Borders};
     transform: translateY(-1px);
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.MobileLg}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.MobileLg}) {
     font-size: 4vw;
   }
 `;

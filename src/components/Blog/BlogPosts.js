@@ -2,78 +2,77 @@ import React from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled, { ThemeConsumer } from 'styled-components';
+import { breakpoints, colours, sizes } from '../Utilities';
 
 const StyledBlogPosts = styled.section`
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
   grid-area: blog;
+  padding: ${sizes(3)};
+  /* justify-content: center; */
 `;
-
-const StyledPost = styled.div`
-  display: grid;
-  width: 75vw;
-  border-radius: 5px;
-  padding: 5px;
-
-  grid-template-columns: 3fr 1fr;
-  grid-template-areas:
-    'title date'
-    'banner banner'
-    'timeToRead .'
-    'excerpt excerpt';
+const StyledPostHeader = styled.article`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  .post-title {
+    font-size: ${sizes(4)};
+    text-align: center;
+  }
+`;
+const StyledBanner = styled.article`
+  display: flex;
+`;
+const StyledMinutes = styled.article`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const StyledExcerpt = styled.article`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+`;
+const StyledPost = styled.article`
+  display: flex;
+  flex: 0 0 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: ${sizes(2)};
+  padding: ${sizes(3)};
+  margin: ${sizes(2)};
+  border: 2px solid ${colours(0, 0)};
+  /* box-shadow: 0px 0px 10px ${colours(0, 0)}; */
+  outline: none;
+  max-width: 250px;
+  height: 500px;
   justify-content: space-between;
-  @media(min-width:${props => props.theme.breakpoints.DesktopSm}){
-
-  transform: translateX(10%);
-}
-  h1 {
-    display: grid;
-    justify-content: flex-start;
-    align-items: center;
-    height: auto;
-
-    grid-area: title;
-    /* font-size: 2rem; */
-    font-size: calc(10px + 2.5vw);
-    font-weight: bold;
-  }
-  h2 {
-    display: flex;
-    grid-area: date;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: right;
-    font-size: calc(10px + 1.5vw);
-    font-weight: bold;
-  }
-  h3 {
-    grid-area: timeToRead;
-    font-size: calc(10px + 1.5vw);
-    font-weight: bold;
-  }
-
-  p {
-    grid-area: excerpt;
-  }
 
   &:hover,
   :focus,
   :active {
-    /* outline: 1px solid ${props => props.theme.colours.Borders}; */
-    box-shadow: 0px 0px 10px ${props => props.theme.colours.Dominant};
-    transition: box-shadow 0.25s;
+    box-shadow: 0px 0px 10px ${(props) => props.theme.colours.Dominant};
+    transform: translateY(-10px);
+    transition: box-shadow trasform 0.25s;
   }
 
-  .banner {
-    grid-area: banner;
-  }
   img {
     display: grid;
-    /* grid-column: 1/3; */
     justify-content: center;
     align-items: center;
-    width: 100%;
-    /* grid-area: banner; */
+    object-fit: cover;
+  }
+  overflow: hidden;
+
+  @media (max-width: 635px) {
+    max-width: 100%;
+    width:100%;
+    
   }
 `;
 
@@ -94,7 +93,7 @@ const BlogPosts = ({ filters }) => {
                 series
                 seriesIndex
                 banner {
-                  absolutePath
+                  # absolutePath
                   childImageSharp {
                     fluid {
                       ...GatsbyImageSharpFluid_withWebp
@@ -130,17 +129,25 @@ const BlogPosts = ({ filters }) => {
           return (
             <Link key={node.id} to={node.fields.slug}>
               <StyledPost className={node.frontmatter.category}>
+                <StyledPostHeader>
+                  <h1 className='post-title'>{node.frontmatter.title}</h1>
+                </StyledPostHeader>
+                <h2 className='post-date'>{node.frontmatter.date}</h2>
                 {node.frontmatter.banner && (
-                  <Img
-                    className='banner'
-                    fluid={node.frontmatter.banner.childImageSharp.fluid}
-                    alt={`${node.frontmatter.title} Banner Image`}
-                  />
+                  <StyledBanner>
+                    <Img
+                      className='post-banner'
+                      fluid={node.frontmatter.banner.childImageSharp.fluid}
+                      alt={`${node.frontmatter.title} Banner Image`}
+                    />
+                  </StyledBanner>
                 )}
-                <h1>{node.frontmatter.title}</h1>
-                <h2>{node.frontmatter.date}</h2>
-                <h3>{node.timeToRead} min</h3>
-                <p>{node.excerpt}</p>
+                <StyledMinutes>
+                  <h3 className='post-minutes'>{node.timeToRead} min</h3>
+                </StyledMinutes>
+                <StyledExcerpt>
+                  <p className='post-excerpt'>{node.excerpt}</p>
+                </StyledExcerpt>
               </StyledPost>
             </Link>
           );
