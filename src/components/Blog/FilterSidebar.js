@@ -17,12 +17,12 @@ const StyledSidebar = styled.section`
   padding: ${sizes(2)};
   width: 100%;
 
-  @media (max-width: ${breakpoints.mobileLg}px) {
+  /* @media (max-width: ${breakpoints.mobileLg}px) { */
     flex-direction: row;
     width: 100%;
     justify-content: center;
     align-items: center;
-  }
+  /* } */
   @media (max-width: ${breakpoints.mobile}px) {
     flex-direction: column;
     width: 100%;
@@ -31,29 +31,17 @@ const StyledSidebar = styled.section`
   }
 
   @media (min-width: ${breakpoints.mobileLg}px) {
-    position: fixed;
-    flex-direction: column;
-    width: 25%;
-    transform: translateY(50%);
-    top: 0;
-    left: 0;
-    justify-self: center;
+    @supports (display: grid){
+      position: fixed
+      flex-direction: column;
+      width: 25%;
+      transform: translateY(50%);
+      top: 0;
+      left: 0;
+      justify-self: center;
+    }
   }
-`;
-
-const StyledFilter = styled.article`
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  .filter-checkbox:hover {
-    box-shadow: 0 0 5px ${(props) => props.theme.colours.Dominant};
-    transition: box-shadow 0.25s;
-  }
-  .filter-checkbox:hover ~ .filter-label {
-    text-decoration: underline;
-  }
+ 
 `;
 
 const FilterSidebar = ({ selected, categories, set }) => {
