@@ -1,10 +1,11 @@
 import React, { useLayoutEffect } from 'react';
 import styled from 'styled-components';
+import { colours } from './Utilities';
 
 const StyledProgressBar = styled.div`
   display: grid;
   height: 10px;
-  background: ${(props) => props.theme.colours.Accent};
+  background: ${colours(0, 1)};
   width: ${(props) => props.scrollPercentage}%;
   grid-column: 1/-1;
   position: fixed;
