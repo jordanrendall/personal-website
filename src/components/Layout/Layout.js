@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useLayoutEffect } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import styled, { ThemeProvider } from 'styled-components';
 import { SiteContext } from '../../context/SiteContext';
@@ -97,7 +97,7 @@ const ContentWrapper = styled.main`
 
 const Layout = ({ children }) => {
   const [scrollPercentage, setScrollPercentage] = useState(0);
-  const updateScrollPercentage = e => {
+  const updateScrollPercentage = (e) => {
     let element = e.target.scrollingElement;
     let top = element.scrollTop;
     let max = element.scrollHeight - element.clientHeight;
@@ -108,6 +108,12 @@ const Layout = ({ children }) => {
   }, []);
 
   const context = useContext(SiteContext);
+  useLayoutEffect(() => {
+    const headerHeight = document.getElementsByTagName('header').clientHeight;
+    console.log(headerHeight);
+    const content = document.getElementsByTagName('main');
+    content.marginTop = `${headerHeight + 5}px`;
+  }, []);
   return (
     <ThemeProvider theme={purpleTheme}>
       <StaticQuery
@@ -120,7 +126,7 @@ const Layout = ({ children }) => {
             }
           }
         `}
-        render={data => (
+        render={(data) => (
           <PageStyles onScroll={updateScrollPercentage}>
             <Header
               scrollPercentage={scrollPercentage}

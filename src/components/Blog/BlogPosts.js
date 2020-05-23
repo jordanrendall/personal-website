@@ -72,6 +72,7 @@ const StyledPost = styled.article`
   @media (max-width: 635px) {
     max-width: 100%;
     width:100%;
+    margin: ${sizes(2)} 0 0 0;
     
   }
 `;

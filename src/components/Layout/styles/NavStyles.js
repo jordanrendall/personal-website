@@ -39,28 +39,20 @@ const StyledH1 = styled.h1`
   :hover:after {
     width: 100%;
   }
-  @media (max-width: ${(props) => props.theme.breakpoints.MobileSm}) {
-    font-size: 1.5rem;
-  }
 `;
 
 const NavStyles = styled.nav`
   display: grid;
   grid-template-columns: 1fr 3fr;
-  /* grid-template-rows: auto ${sizes(3)}px; */
-  background: ${(props) => props.theme.colours.Dominant};
-  border-bottom: 5px solid ${(props) => props.theme.colours.Borders};
-  /* border-bottom: 5px solid linear-gradient(${(props) =>
-    props.theme.colours.Borders},${(props) =>
-  props.theme.colours.Background}); */
-  /* border-top: 5px solid ${(props) => props.theme.colours.Borders}; */
-  padding-right: ${sizes(3)}px;
-  /* padding-top: 5px; */
-  width: 100%;
   position: fixed;
   top: 0;
   z-index: 1;
+  width: 100%;
+  background: ${(props) => props.theme.colours.Dominant};
   color: ${(props) => props.theme.colours.TextLight};
+
+  border-bottom: 5px solid ${(props) => props.theme.colours.Borders};
+  padding-right: ${sizes(3)}px;
   list-style-type: none;
 
   a {
@@ -72,14 +64,13 @@ const NavStyles = styled.nav`
     :focus,
     :active {
       color: ${(props) => props.theme.colours.TextLight};
-      
     }
   }
   .menu-icon,
   .toggled-nav {
     display: none;
   }
-  @media (max-width: ${(props) => props.theme.breakpoints.MobileLg}) {
+  @media (max-width: ${breakpoints.mobileLg}px) {
     ul[orientation='horizontal'] {
       display: none;
     }
