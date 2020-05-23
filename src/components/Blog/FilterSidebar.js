@@ -32,7 +32,7 @@ const StyledSidebar = styled.section`
 
   @media (min-width: ${breakpoints.mobileLg}px) {
     @supports (display: grid){
-      position: fixed
+      position: fixed;
       flex-direction: column;
       width: 25%;
       transform: translateY(50%);

@@ -13,9 +13,9 @@ const StyledBlogContainer = styled.section`
     grid-template-columns: 1fr 3fr;
     grid-template-areas: 'filters blog';
     justify-content: center;
+
     @media (max-width: ${breakpoints.mobileLg}px) {
       grid-template-columns: 1fr;
-
       grid-template-areas: 'filters' 'blog';
     }
   }
