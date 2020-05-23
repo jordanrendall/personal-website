@@ -10,7 +10,7 @@ import ProgressBar from '../ProgressBar';
 import PropTypes from 'prop-types';
 import Hamburger from '../Hamburger';
 
-const Nav = ({ scrollPercentage }) => {
+const Nav = ({ scrollPercentage, page }) => {
   const data = useStaticQuery(
     graphql`
       query getMenuLinks {
@@ -27,7 +27,8 @@ const Nav = ({ scrollPercentage }) => {
     `
   );
   const opacity = scrollPercentage > 0 ? 0.4 : 1;
-
+  const regex = /blog\/(\w)*/g;
+  const onBlog = window.location.href.match(regex);
   return (
     <NavStyles id='navbar' style={{ opacity }}>
       {/* <StyledNavTitle> */}
@@ -44,7 +45,7 @@ const Nav = ({ scrollPercentage }) => {
           );
         })}
       </StyledUl>
-      <ProgressBar scrollPercentage={scrollPercentage} />
+      {onBlog && <ProgressBar scrollPercentage={scrollPercentage} />}
     </NavStyles>
   );
 };
