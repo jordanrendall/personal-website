@@ -39,11 +39,19 @@ const StyledButton = styled.div`
 `;
 
 const StyledPage = styled.section`
-  display: grid;
-  grid-template-columns: 500px 1fr;
-  grid-template-areas: 'image other';
-  justify-content: center;
-  align-items: center;
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: 500px 1fr;
+    grid-template-areas: 'image other';
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  @supports not (display: grid) {
+    display: flex;
+    justify-content: space-between;
+  }
 
   img {
     grid-area: image;

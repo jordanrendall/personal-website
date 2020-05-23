@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import Typist from 'react-typist';
 import styled from 'styled-components';
 const Styles = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* grid-template-columns: 1fr; */
+  /* justify-content: center; */
 
   p {
     text-align: center;

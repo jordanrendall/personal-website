@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { colours } from './Utilities';
 
 const StyledProgressBar = styled.div`
-  display: grid;
+  display: flex;
   height: 10px;
   background: ${colours(0, 1)};
   width: ${(props) => props.scrollPercentage}%;

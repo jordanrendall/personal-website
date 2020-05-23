@@ -6,16 +6,23 @@ import styled from 'styled-components';
 import { sizes, breakpoints } from '../Utilities';
 
 const StyledBlogContainer = styled.section`
-  display: grid;
-  /* flex-direction: column; */
-  grid-gap: ${sizes(4)};
-  grid-template-columns: 1fr 3fr;
-  grid-template-areas: 'filters blog';
-  justify-content: center;
-  @media (max-width: ${breakpoints.mobileLg}px) {
-    grid-template-columns: 1fr;
+  @supports (display: grid) {
+    display: grid;
+    /* flex-direction: column; */
+    grid-gap: ${sizes(4)};
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: 'filters blog';
+    justify-content: center;
+    @media (max-width: ${breakpoints.mobileLg}px) {
+      grid-template-columns: 1fr;
 
-    grid-template-areas: 'filters' 'blog';
+      grid-template-areas: 'filters' 'blog';
+    }
+  }
+  @supports not (display: grid) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 `;
 const BlogContainer = () => {

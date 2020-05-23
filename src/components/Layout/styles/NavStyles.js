@@ -45,8 +45,14 @@ const StyledH1 = styled.h1`
 `;
 
 const NavStyles = styled.nav`
-  display: grid;
-  grid-template-columns: 1fr 3fr;
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+  @supports not (display: grid) {
+    display: flex;
+    justify-content: space-between;
+  }
   position: fixed;
   top: 0;
   z-index: 1;
