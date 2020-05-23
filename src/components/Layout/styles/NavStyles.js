@@ -28,6 +28,9 @@ const StyledH1 = styled.h1`
   flex-direction: column;
   justify-content: center;
   padding: ${sizes(2)};
+  a {
+    text-decoration: none;
+  }
   :after {
     content: '';
     width: 0px;
