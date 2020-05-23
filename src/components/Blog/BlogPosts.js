@@ -10,6 +10,11 @@ const StyledBlogPosts = styled.section`
   grid-area: blog;
   padding: ${sizes(3)};
   /* justify-content: center; */
+
+  @media (max-width: 635px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 const StyledPostHeader = styled.article`
   display: flex;
