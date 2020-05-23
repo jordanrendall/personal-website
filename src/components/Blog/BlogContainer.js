@@ -18,7 +18,6 @@ const StyledBlogContainer = styled.section`
   }
 `;
 const BlogContainer = () => {
-  const [selectedFilters, setFilters] = useState(categories);
   const data = useStaticQuery(
     graphql`
       query {
@@ -44,6 +43,7 @@ const BlogContainer = () => {
       return self.indexOf(value) === index;
     })
     .sort();
+  const [selectedFilters, setFilters] = useState(categories);
 
   return (
     <StyledBlogContainer>
