@@ -27,10 +27,12 @@ const Nav = ({ scrollPercentage, page }) => {
     `
   );
   const opacity = scrollPercentage > 0 ? 0.4 : 1;
+  // let onBlog = false;
 
   // useLayoutEffect(() => {
   const regex = /blog\/(\w)*/g;
-  const onBlog = window ? window.location.href.match(regex) : false;
+  const onBlog =
+    typeof window !== 'undefined' ? window.location.href.match(regex) : false;
   // }, []);
 
   return (
