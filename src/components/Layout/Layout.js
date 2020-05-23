@@ -91,7 +91,7 @@ const ContentWrapper = styled.main`
   display: grid;
   justify-content: space-around;
   /* margin-bottom: 40px; */
-  margin-top: 80px;
+  /* margin-top: 80px; */
   /* grid-template-rows: auto 1fr auto; */
 `;
 
@@ -109,10 +109,10 @@ const Layout = ({ children }) => {
 
   const context = useContext(SiteContext);
   useLayoutEffect(() => {
-    const headerHeight = document.getElementsByTagName('header').clientHeight;
-    console.log(headerHeight);
-    const content = document.getElementsByTagName('main');
-    content.marginTop = `${headerHeight + 5}px`;
+    const navHeight = document.getElementsByTagName('nav')[0].clientHeight;
+    console.log(navHeight);
+    const content = document.getElementsByTagName('main')[0];
+    content.style.marginTop = `${navHeight + 5}px`;
   }, []);
   return (
     <ThemeProvider theme={purpleTheme}>
