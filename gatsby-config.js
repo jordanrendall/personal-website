@@ -22,6 +22,10 @@ module.exports = {
         name: 'Projects',
         link: '/projects',
       },
+      // {
+      //   name: 'Activities',
+      //   link: '/activities',
+      // },
       {
         name: 'Uses',
         link: '/uses',
@@ -33,8 +37,22 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `content`,
-        path: `${__dirname}/src/content/`,
+        name: `blog`,
+        path: `${__dirname}/src/content/blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `other`,
+        path: `${__dirname}/src/content/other`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/src/content/projects`,
       },
     },
     {

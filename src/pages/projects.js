@@ -1,5 +1,8 @@
 import React from 'react';
 import Layout from '../components/Layout/Layout';
+import { graphql, useStaticQuery } from 'gatsby';
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+
 import SEO from '../components/seo';
 import styled from 'styled-components';
 import { colours, sizes } from '../components/Utilities';
@@ -32,30 +35,52 @@ const StyledProject = styled.article`
   }
 `;
 
-const OtherProjectsPage = () => (
-  <Layout>
-    <SEO title='Projects' />
-    <StyledProjects>
-      <StyledProject>
-        <h1>Did you feed the cat?</h1>
-        <p>
-          A fun application that explores the use of #NextJS, #Apollo, #MongoDB,
-          and #Graphql. The application quickly displays the last time a pet was
-          fed.
-        </p>
-        <p>
-          <a
-            target='_blank'
-            rel='noreferrer'
-            className='project-link'
-            href='https://didyoufeedthecat.jordanrendall.com'
-          >
-            Check it out
-          </a>
-        </p>
-      </StyledProject>
-    </StyledProjects>
-  </Layout>
-);
-
+const OtherProjectsPage = () => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        allMdx(
+          sort: { fields: [frontmatter___date], order: DESC }
+          filter: { fileAbsolutePath: { regex: "/projects/" } }
+        ) {
+          edges {
+            node {
+              body
+              frontmatter {
+                title
+                # date(formatString: "DD MMMM, YYYY")
+                link
+                linkText
+              }
+            }
+          }
+        }
+      }
+    `
+  );
+  let projects = data.allMdx.edges;
+  return (
+    <Layout>
+      <SEO title='Projects' />
+      <StyledProjects>
+        {projects.map(({ node }) => {
+          return (
+            <StyledProject>
+              <h1>{node.frontmatter.title}</h1>
+              <MDXRenderer>{node.body}</MDXRenderer>
+              <a
+                target='_blank'
+                rel='noreferrer'
+                className='project-link'
+                href={node.frontmatter.link}
+              >
+                {node.frontmatter.linkText}
+              </a>
+            </StyledProject>
+          );
+        })}
+      </StyledProjects>
+    </Layout>
+  );
+};
 export default OtherProjectsPage;
