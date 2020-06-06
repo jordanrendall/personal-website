@@ -41,7 +41,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   return graphql(`
     {
-      allMdx {
+      allMdx(filter: { fileAbsolutePath: { regex: "/blog/" } }) {
         edges {
           node {
             fields {
@@ -51,7 +51,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     result.data.allMdx.edges.forEach(({ node }) => {
       createPage({
         path: node.fields.slug,
