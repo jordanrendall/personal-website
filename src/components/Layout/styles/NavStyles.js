@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { sizes, colours, breakpoints } from '../../Utilities';
+import { sizes, breakpoints } from '../../Utilities';
 // const StyledNavTitle = styled.div`
 //   display: flex;
 //   justify-content: flex-start;
@@ -47,7 +47,7 @@ const StyledH1 = styled.h1`
 const NavStyles = styled.nav`
   @supports (display: grid) {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 5fr;
   }
   @supports not (display: grid) {
     display: flex;
@@ -97,13 +97,13 @@ const StyledUl = styled.ul`
   justify-content: space-around;
   padding: 0;
   @media (max-width: ${breakpoints.mobileLg}px) {
-    width: 80%;
+    width: 100%;
   }
   @media (max-width: ${breakpoints.mobile}px) {
     width: 100%;
   }
   @media (min-width: ${breakpoints.mobileLg}px) {
-    width: 40%;
+    width: 65%;
   }
 `;
 

@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
-
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import styled from 'styled-components';
@@ -48,6 +46,7 @@ const OtherProjectsPage = () => (
         <p>
           <a
             target='_blank'
+            rel='noreferrer'
             className='project-link'
             href='https://didyoufeedthecat.jordanrendall.com'
           >

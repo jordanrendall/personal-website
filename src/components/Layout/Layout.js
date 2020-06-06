@@ -5,10 +5,9 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React, { useState, useContext, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import styled, { ThemeProvider } from 'styled-components';
-import { SiteContext } from '../../context/SiteContext';
 import Header from './Header';
 import Footer from './Footer';
 import PageStyles from './styles/PageStyles';
@@ -107,7 +106,7 @@ const Layout = ({ children }) => {
     document.addEventListener('scroll', updateScrollPercentage);
   }, []);
 
-  const context = useContext(SiteContext);
+  // const context = useContext(SiteContext);
   useLayoutEffect(() => {
     const navHeight = document.getElementsByTagName('nav')[0].clientHeight;
     console.log(navHeight);

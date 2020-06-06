@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/Layout/Layout';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import { graphql } from 'gatsby';
 
 const usesPage = ({ data }) => {
   const post = data.allMdx.edges[0].node;

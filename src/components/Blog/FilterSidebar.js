@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import FilterButton from './FilterButton';
-import { breakpoints, colours, sizes } from '../Utilities';
+import { breakpoints, sizes } from '../Utilities';
 
 const StyledSidebar = styled.section`
   h2 {

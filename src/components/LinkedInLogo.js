@@ -1,6 +1,4 @@
 import React from 'react';
-import Img from 'gatsby-image';
-import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 const StyledLogo = styled.a`
@@ -9,12 +7,12 @@ const StyledLogo = styled.a`
   svg {
     :hover {
       transform: translateY(-1px);
-      box-shadow: 0px 0px 20px ${props => props.theme.colours.Borders};
+      box-shadow: 0px 0px 20px ${(props) => props.theme.colours.Borders};
       border-radius: 5px;
     }
   }
   path {
-    fill: ${props => props.theme.colours.Dominant};
+    fill: ${(props) => props.theme.colours.Dominant};
   }
 `;
 const LinkedInLogo = () => {
@@ -23,6 +21,7 @@ const LinkedInLogo = () => {
       className='logo'
       href='https://linkedIn.com/in/jordanrendall'
       target='_blank'
+      rel='noreferrer'
     >
       <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 65 65'>
         <path

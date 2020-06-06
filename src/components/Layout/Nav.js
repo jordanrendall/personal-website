@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React from 'react';
 import NavStyles, {
   StyledH1,
   // StyledNavTitle,
@@ -8,7 +8,6 @@ import NavStyles, {
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import ProgressBar from '../ProgressBar';
 import PropTypes from 'prop-types';
-import Hamburger from '../Hamburger';
 
 const Nav = ({ scrollPercentage, page }) => {
   const data = useStaticQuery(

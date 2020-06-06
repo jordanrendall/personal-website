@@ -29,7 +29,7 @@ const BlogContainer = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        allMdx {
+        allMdx(filter: { fileAbsolutePath: { regex: "/blog/" } }) {
           edges {
             node {
               frontmatter {
@@ -41,6 +41,7 @@ const BlogContainer = () => {
       }
     `
   );
+  console.log(data);
   const categories = data.allMdx.edges
     .map(({ node }) => {
       const category = node.frontmatter.category;

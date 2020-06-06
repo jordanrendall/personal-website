@@ -86,7 +86,10 @@ const BlogPosts = ({ filters }) => {
   const data = useStaticQuery(
     graphql`
       query {
-        allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+        allMdx(
+          sort: { fields: [frontmatter___date], order: DESC }
+          filter: { fileAbsolutePath: { regex: "/blog/" } }
+        ) {
           totalCount
           edges {
             node {
