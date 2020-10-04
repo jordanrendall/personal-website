@@ -20,6 +20,7 @@ const ProfilePic = (props) => {
       loading='lazy'
       alt={props.alt}
       fluid={imageQuery.fileName.childImageSharp.fluid}
+      fadeIn={true}
     />
   );
 };

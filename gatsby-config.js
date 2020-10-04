@@ -1,8 +1,20 @@
 require('dotenv').config({
   path: `.env`,
 });
-
+const { createProxyMiddleware } = require("http-proxy-middleware")
+// const proxy = require('http-proxy-middleware')
 module.exports = {
+  developMiddleware: app => {
+    app.use(
+      "/.netlify/functions/",
+      createProxyMiddleware({
+        target: "http://localhost:8888",
+        pathRewrite: {
+          "/.netlify/functions/": "",
+        },
+      })
+    );
+  },
   siteMetadata: {
     title: process.env.SITE_TITLE,
     description: process.env.SITE_DESCRIPTION,
@@ -10,14 +22,14 @@ module.exports = {
     twitterHandle: '@tjordanrendall',
     siteUrl: process.env.SITE_URL,
     menuLinks: [
-      {
-        name: 'Home',
-        link: '/',
-      },
-      {
-        name: 'Blog',
-        link: '/blog',
-      },
+      // {
+      //   name: 'Home',
+      //   link: '/',
+      // },
+      // {
+      //   name: 'Blog',
+      //   link: '/blog',
+      // },
       {
         name: 'Projects',
         link: '/projects',
@@ -42,7 +54,8 @@ module.exports = {
         enabled: (() =>
           ['production', 'stage'].indexOf(process.env.NODE_ENV) !== -1)(),
       },
-    }`gatsby-plugin-react-helmet`,
+    },
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -71,7 +84,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-
+ 
     {
       resolve: `gatsby-plugin-mdx`,
       options: {

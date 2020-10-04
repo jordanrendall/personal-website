@@ -47,7 +47,7 @@ const StyledH1 = styled.h1`
 const NavStyles = styled.nav`
   @supports (display: grid) {
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 2fr 3fr;
   }
   @supports not (display: grid) {
     display: flex;

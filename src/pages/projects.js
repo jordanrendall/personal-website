@@ -71,6 +71,7 @@ const OtherProjectsPage = () => {
               <a
                 target='_blank'
                 rel='noreferrer'
+                rel='noopener'
                 className='project-link'
                 href={node.frontmatter.link}
               >

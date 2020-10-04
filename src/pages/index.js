@@ -39,39 +39,26 @@ const StyledButton = styled.div`
 `;
 
 const StyledPage = styled.section`
-  @supports (display: grid) {
-    display: grid;
-    grid-template-columns: 500px 1fr;
-    grid-template-areas: 'image other';
-
+    display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  @supports not (display: grid) {
-    display: flex;
-    justify-content: space-between;
     img {
       width: 500px;
+      height: 500px;
     }
-  }
 
-  img {
-    grid-area: image;
-    max-width: 500px;
-    max-height: 500px;
-  }
   .gatsby-image-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: auto;
+    width: 75vw;
+    max-width: 500px;
   }
   @media (max-width: ${breakpoints.mobileLg}px) {
-    grid-template-areas: 'other' 'image';
-    grid-template-columns: 1fr;
-    display: grid;
-    /* flex-direction: column; */
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
@@ -120,18 +107,7 @@ const IndexPage = ({ data }) => {
       <StyledPage>
         <ProfilePic alt='Jordan Rendall Profile Picture' />
         <Title>
-          <p>Welcome!</p>
-          <p>Feel free to check out</p>
-          <div className='main-cta-group'>
-            <Link to={'/blog'}>
-              <StyledButton>My Blog</StyledButton>
-            </Link>
-            <Link to={'/projects'}>
-              <StyledButton>My Current Projects</StyledButton>
-            </Link>
-          </div>
-
-          <p>Or connect @</p>
+         <p>Connect @</p>
           <Logos />
         </Title>
       </StyledPage>
