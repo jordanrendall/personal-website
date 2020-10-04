@@ -65,11 +65,11 @@ const NavStyles = styled.nav`
   list-style-type: none;
 
   a {
-    &:visited {
+    :visited {
       color: ${(props) => props.theme.colours.TextLight};
     }
     text-decoration: none;
-    &:hover,
+    :hover,
     :focus,
     :active {
       color: ${(props) => props.theme.colours.TextLight};
