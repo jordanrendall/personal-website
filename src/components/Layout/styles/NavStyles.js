@@ -37,7 +37,7 @@ const StyledH1 = styled.h1`
     /* height: calc(2px + 0.15vw); */
     display: block;
     background: ${(props) => props.theme.colours.TextLight};
-    transition: 300ms;
+    transition: background 300ms;
   }
   :hover:after {
     width: 100%;
@@ -116,22 +116,30 @@ const MenuLink = styled.li`
     font-size: ${sizes(4)};
   /* padding: ${sizes(4)}px; */
   /* font-size: calc(1.4rem + 1.4vw); */
+  position: relative;
   a,
   a:visited {
     color: ${(props) => props.theme.colours.TextLight};
   }
   a:after {
     content: '';
-    width: 0px;
-    height: ${sizes(0)};
-    /* height: calc(2px + 0.15vw); */
-    display: block;
-    background: ${(props) => props.theme.colours.TextLight};
-    transition: 300ms;
-    transform:translateY(-${sizes(0)});
-  }
-  a:hover:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
+    height: 2px;
+    transform-origin: right center;
+    transform: scale3d(0,1,1);
+
+    background: ${(props) => props.theme.colours.TextLight};
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+
+ }
+  a:hover:after {
+    transform: scale3d(1,1,1);
+
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+
   }
 `;
 // const ThemeButton = styled.button`

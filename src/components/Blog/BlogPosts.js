@@ -1,8 +1,9 @@
 import React from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
+import {Link} from 'gatsby-plugin-transition-link'
 import Img from 'gatsby-image';
-import styled, { ThemeConsumer } from 'styled-components';
-import { breakpoints, colours, sizes } from '../Utilities';
+import styled from 'styled-components';
+import {  colours, sizes } from '../Utilities';
 
 const StyledBlogPosts = styled.section`
   display: flex;

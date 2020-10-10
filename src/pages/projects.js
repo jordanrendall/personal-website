@@ -70,8 +70,7 @@ const OtherProjectsPage = () => {
               <MDXRenderer>{node.body}</MDXRenderer>
               <a
                 target='_blank'
-                rel='noreferrer'
-                rel='noopener'
+                rel='noreferrer noopener'
                 className='project-link'
                 href={node.frontmatter.link}
               >

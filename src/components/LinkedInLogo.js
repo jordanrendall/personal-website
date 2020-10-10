@@ -21,8 +21,7 @@ const LinkedInLogo = () => {
       className='logo'
       href='https://linkedIn.com/in/jordanrendall'
       target='_blank'
-      rel='noreferrer'
-      rel='noopener'
+      rel='noreferrer noreferrer'
     >
       <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 65 65'>
         <path

@@ -31,7 +31,7 @@ module.exports = {
       //   link: '/blog',
       // },
       {
-        name: 'Projects',
+        name: 'projects',
         link: '/projects',
       },
       // {
@@ -39,8 +39,8 @@ module.exports = {
       //   link: '/activities',
       // },
       {
-        name: 'Uses',
-        link: '/uses',
+        name: 'connect',
+        link: '/connect',
       },
     ],
   },
@@ -108,7 +108,7 @@ module.exports = {
         plugins: [`gatsby-remark-images`],
       },
     },
-
+    `gatsby-plugin-transition-link`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,

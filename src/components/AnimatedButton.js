@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Link } from 'gatsby';
+import {Link} from 'gatsby-plugin-transition-link'
 import { animated } from 'react-spring';
 import styled from 'styled-components';
 

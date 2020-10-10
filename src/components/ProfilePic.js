@@ -17,10 +17,12 @@ const ProfilePic = (props) => {
   `);
   return (
     <Img
-      loading='lazy'
+      loading='eager'
       alt={props.alt}
       fluid={imageQuery.fileName.childImageSharp.fluid}
       fadeIn={true}
+      durationFadeIn={300}
+      className='profile-pic'
     />
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
+import {Link} from 'gatsby-plugin-transition-link'
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import styled from 'styled-components';
