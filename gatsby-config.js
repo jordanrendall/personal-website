@@ -1,16 +1,16 @@
 require('dotenv').config({
   path: `.env`,
 });
-const { createProxyMiddleware } = require("http-proxy-middleware")
+const { createProxyMiddleware } = require('http-proxy-middleware');
 // const proxy = require('http-proxy-middleware')
 module.exports = {
-  developMiddleware: app => {
+  developMiddleware: (app) => {
     app.use(
-      "/.netlify/functions/",
+      '/.netlify/functions/',
       createProxyMiddleware({
-        target: "http://localhost:8888",
+        target: 'http://localhost:8888',
         pathRewrite: {
-          "/.netlify/functions/": "",
+          '/.netlify/functions/': '',
         },
       })
     );
@@ -84,7 +84,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
- 
+
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -123,7 +123,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/manifest-icon.png`,
+        // icon: `src/images/manifest-icon.png`,
         cache_busting_mode: `query`,
         theme_color_in_head: false,
       },
