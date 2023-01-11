@@ -27,7 +27,7 @@
     "gatsby-remark-images": "^3.1.28",
     "gatsby-source-filesystem": "^2.1.33",
     "gatsby-source-strava-activities": "^2.0.0",
-    "gatsby-transformer-remark": "^2.6.30",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.3.0",
     "graphql-tag": "^2.10.1",
     "gsap": "^3.5.1",
